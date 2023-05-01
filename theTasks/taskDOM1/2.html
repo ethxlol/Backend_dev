@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<img
+			src="https://i.pinimg.com/originals/c9/40/a3/c940a3dae3900d100990e5b697ef196c.jpg"
+			alt="Pika Pika"
+		/>
+		<img
+			src="https://i.pinimg.com/originals/c9/40/a3/c940a3dae3900d100990e5b697ef196c.jpg"
+			alt="Pika Pika"
+		/>
+		<p id="demo"></p>
+		<button onclick="showDetails()">Click me!</button>
+		<script>
+			//  We are showing how many images by parsing it to the p with a demo id making it display as a paragraph on the website
+			document.getElementById('demo').innerHTML =
+				'number of images: ' + document.images.length;
+
+			// We are getting the width, height and source of the first image, instead of giving it a class or id we are simply using
+			// the [0] index number since we know that we want this information about the first image in the html, super cool
+			function showDetails() {
+				alert(
+					'Width: ' +
+						document.images[0].width +
+						'\n' +
+						'Height: ' +
+						document.images[0].height +
+						'\n' +
+						'Image Src: ' +
+						document.images[0].src +
+						'\n'
+				);
+			}
+		</script>
+	</body>
+</html>

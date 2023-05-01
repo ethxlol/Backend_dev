@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>jQuery lesson</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<style>
+			a {
+				display: block;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="example">
+			<p>First paragraph.</p>
+			<p class="classA">The second paragraph.</p>
+			<p id="para3">The third paragraph.</p>
+			<p>The fourth paragraph.</p>
+			<p class="classA">The fifth paragraph.</p>
+		</div>
+		<!-- changing it to links to youtube that will not change the text -->
+		<button onclick="action1()">Button 1</button>
+		<button onclick="action2()">Button 2</button>
+		<button onclick="action3()">Button 3</button>
+
+		<script>
+			// we are not hardcoding in the link for youtube, we are creating a function for it
+			function action1() {
+				$('div p').replaceWith(replacementFn);
+			}
+
+			function replacementFn() {
+				// we are linking the text to a hyperlink, and the $(this).text will let us keep the text
+				return '<a href="https://youtube.com">' + $(this).text() + '</a>';
+			}
+
+			function action2(params) {
+				// when the links are activated, we want them to increase in font-size when we hover over them, so we chose a as the selector
+				$('a').hover(hoverToggleUp, hoverToggleDown);
+			}
+
+			function hoverToggleUp() {
+				// this is what is making the font change
+				$(this).css('font-size', '30px');
+			}
+			function hoverToggleDown() {
+				// and this is changing it back when we hover out of it
+				$(this).css('font-size', '20px');
+			}
+
+			function action3(params) {
+				// this will make the paragraphs and links fade away, since i selected p and a in the selector
+				$('p, a').fadeOut('slow', 'linear');
+				// this will make the buttons slide up and away!
+				$('button').slideUp('slow');
+			}
+		</script>
+	</body>
+</html>

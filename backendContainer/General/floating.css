@@ -1,0 +1,19 @@
+img {
+	width: 100px;
+	height: 100px;
+}
+#img1 {
+	float: left;
+}
+#img2 {
+	float: right;
+}
+#img3 {
+	float: none;
+}
+div {
+	width: 400px;
+}
+.text {
+	clear: both;
+}

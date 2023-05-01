@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- This is the button to go to url set in the function -->
+		<p><button onclick="setURL()">Set URL</button></p>
+
+		<script>
+			// this is the function that corresponds to the button setURL
+			function setURL() {
+				window.location.href = 'https://google.com';
+			}
+		</script>
+
+		<!-- these are the window.location objects that we can use to find out information about the web page using BOM -->
+		<h2>JavaScript</h2>
+		<h3>The window.location object</h3>
+		<p id="p1"></p>
+		<p id="p2"></p>
+		<p id="p3"></p>
+		<p id="p4"></p>
+		<p id="p5"></p>
+		<input type="button" value="Load new document" onclick="newDoc()" />
+		<script>
+			document.getElementById('p1').innerHTML =
+				'Page location is ' + window.location.href;
+			document.getElementById('p2').innerHTML =
+				'Page hostname is ' + window.location.hostname;
+			document.getElementById('p3').innerHTML =
+				'Page path is ' + window.location.pathname;
+			document.getElementById('p4').innerHTML =
+				'Page protocol is ' + window.location.protocol;
+			document.getElementById('p5').innerHTML =
+				'Port number is ' + window.location.port;
+			function newDoc() {
+				window.location.assign('https://www.google.com');
+			}
+		</script>
+	</body>
+</html>

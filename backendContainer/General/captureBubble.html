@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style>
+			#myDiv1,
+			#myDiv2 {
+				background-color: yellow;
+				padding: 50px;
+			}
+
+			#para1,
+			#para2 {
+				background-color: blue;
+				font-size: 20px;
+				border: 1px solid;
+				padding: 20px;
+			}
+		</style>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="myDiv1">
+			<h2>Bubbling:</h2>
+			<p id="para1">Click here for bubbling!</p>
+		</div>
+		<br />
+		<div id="myDiv2">
+			<h2>Capturing:</h2>
+			<p id="para2">or here for capturing!</p>
+		</div>
+
+		<script>
+			// Because we have set the third parameter (capturing) to false we are bubbling, making it so the innermost element is displayed first.
+			// in this case it would be the most intuitive, and to be honest in most cases.
+			document.getElementById('para1').addEventListener(
+				'click',
+				function () {
+					alert('You clicked the blue element');
+				},
+				false
+			);
+
+			document.getElementById('myDiv1').addEventListener(
+				'click',
+				function () {
+					alert('You clicked the yellow element!');
+				},
+				false
+			);
+			// Because we are setting the third parameter to true (capturing) we are getting the outermost event element first,
+			// this results in the color yellow will be alerted first when we are clicking the blue p, in this case its quite unintuitive
+			document.getElementById('para2').addEventListener(
+				'click',
+				function () {
+					alert('You clicked the blue element');
+				},
+				true
+			);
+
+			document.getElementById('myDiv2').addEventListener(
+				'click',
+				function () {
+					alert('You clicked the yellow element!');
+				},
+				true
+			);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="jquery-3.6.0.js"></script>
+	</head>
+	<body>
+		<p class="classA">The first paragraph.</p>
+		<p class="classB">The second paragraph.</p>
+		<p>The third paragraph.</p>
+		<p lang="en-us">The fourth paragraph.</p>
+		<p lang="en-gb">The fifth paragraph.</p>
+
+		<div id="example">
+			<p id="para1" class="classA">The first paragraph.</p>
+			<p class="classB">The second paragraph.</p>
+			<p id="para3">The third paragraph.</p>
+			<p id="para4" lang="en-us">The fourth paragraph.</p>
+			<p id="para5" lang="en-gb">The fifth paragraph1.</p>
+		</div>
+
+		<div id="example2">
+			<p class="classA">The first paragraph.</p>
+			<p class="classB">The second paragraph.</p>
+			<p>The third paragraph.</p>
+			<p lang="en-us">The fourth paragraph.</p>
+			<p lang="en-gb">The fifth paragraph.</p>
+		</div>
+
+		<script>
+			$('document').ready(function () {
+				// now we are selecting the p elements that are not in the div parent, so therefor div > p
+				$('div > p').css('color', 'blue');
+				// Selecting all the p with classA and classB inside of all div's and giving it border
+				// descendant selector. It’s similar to the first one, but instead of a parent,
+				// the element needs to have a specified ‘ancestor’ anywhere above them. To use this, we write the ancestor’s name first,
+				// and after a space, we specify the child.
+				// In our example, it works the same as the child selector – elements in both the second and third sections receive a red border.
+				$('div p.classA').css('border', '3px solid red');
+				// The next one is the adjacent selector. It selects elements if the specified element immediately precedes them.
+				// At first, specify the predecessor(p), then use the “+” sign and specify the adjacent elements we want to select.
+				$('p + div').css('background-color', 'yellow');
+				// this will target the p siblings that come after the selector
+				// The last one is the sibling selector. It’s similar to the adjacent selector but selects all elements that come after the predecessor.
+				// First, specify the predecessor, then use the “~” sign and specify the elements you want to select.
+				// In our example, the font of both the fourth and the fifth paragraphs changed.
+				$('#para3 ~ p').css('font-size', '50px');
+				// This line will select all paragraphs inside the div immediately preceded by any paragraph.
+				$('p + div > p').css('color', 'red');
+				// we are selecting all p that are the child of a div and aligning it to the right
+				$('div > p').css('text-align', 'right');
+			});
+		</script>
+	</body>
+</html>

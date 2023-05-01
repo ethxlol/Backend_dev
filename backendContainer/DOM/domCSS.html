@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- making a border for the button -->
+		<style>
+			#buttonStyle {
+				border: 10px solid blue;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 10px;
+				width: 200px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- so we made a button that changes the color when clicked using dom, also prompts an alert -->
+		<div id="buttonStyle">
+			<button onclick="hiFriend()" id="button1">Changes!</button>
+			<script>
+				document
+					.getElementById('button1')
+					.addEventListener('click', changeText);
+				function changeText() {
+					this.style.backgroundColor = 'blue';
+				}
+
+				function hiFriend() {
+					alert('hah! changed color!');
+				}
+			</script>
+		</div>
+	</body>
+</html>

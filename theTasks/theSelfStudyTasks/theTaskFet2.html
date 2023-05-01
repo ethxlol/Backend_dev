@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Homework Fet2</title>
+	</head>
+	<body>
+		<!-- this is commented out for the second tast to work -->
+		<!-- <p id="text">Text to be changed</p>
+		<button onclick="b1Changes()">Changed Font attributes</button> -->
+
+		<!-- we are making a button that will change the colors of the paragraphs ( red green )  -->
+
+		<!-- but we are doing it using the dom, getting from the body and down into the children -->
+		<button onclick="changeColor()">Change Color of P</button>
+		<p>Red</p>
+		<p>Green</p>
+
+		<!-- making a paragraph that will send to a link -->
+		<p>
+			<a id="link1" type="text/html" target="_blank" href="https://google.com"
+				>The link!</a
+			>
+		</p>
+
+		<!-- and a button that will alert the attributes of the link when we click the button -->
+		<button onclick="getAttributes()">Show attributes value</button>
+
+		<!-- A table containing two columns: name and surname -->
+		<table id="nameTable">
+			<tr>
+				<td>Emil</td>
+				<td>Leiknes-Nordheim</td>
+			</tr>
+			<tr>
+				<td>Renate</td>
+				<td>Leiknes-Nordheim</td>
+			</tr>
+		</table>
+
+		<!-- And a button for the table that will insert new rows on the top of the existing -->
+		<button onclick="insertRow()">Insert Row</button>
+
+		<!-- a new table with 3 rows of data and 2 columns-->
+		<table id="table2">
+			<tr>
+				<td>Odin</td>
+				<td>Leiknes-Nordheim</td>
+			</tr>
+			<tr>
+				<td>Laila</td>
+				<td>Leiknes-Nordheim</td>
+			</tr>
+			<tr>
+				<td>Arthur</td>
+				<td>Leiknes-Nordheim</td>
+			</tr>
+		</table>
+
+		<!-- a button that will modify the above cells text chosen by the user via prompt -->
+		<button onclick="modifyCell()">Modify table cell</button>
+
+		<script>
+			// so we are using the text id dynamically in the dom to change the styles
+			// and the button is the one with the function attached to it, so when we click it the functions apply to the paragraph(text)
+			function b1Changes(params) {
+				text.style.fontSize = '16px';
+				text.style.fontFamily = 'Comic Sans MS';
+				text.style.color = 'blue';
+			}
+
+			// the dom is getting the elements and changing the colors based on tag names and the index of the respective elements in the body
+			function changeColor(params) {
+				body = document.getElementsByTagName('body')[0];
+				myBodyElements = body.getElementsByTagName('p');
+				firstParagraph = myBodyElements[0];
+				firstParagraph.style.color = 'red';
+				secondParagraph = myBodyElements[1];
+				secondParagraph.style.color = 'green';
+			}
+
+			// this is the function that will show the attributes of the link when clicking the button with the getAttributes()
+			function getAttributes(params) {
+				var href = document.getElementById('link1').href;
+				alert('The value of the href attribute of the link is: ' + href);
+				var target = document.getElementById('link1').target;
+				alert('The value of the target attribute of the link is: ' + target);
+				var type = document.getElementById('link1').type;
+				alert('The value of the type attribute of the link is: ' + type);
+			}
+
+			// the js code for the new table insertions
+			// we are again utilizing the index of the table to add it to the top of the list instead of under or in between
+			// 0 being the top of the table index and the cells being placed in their corresponding place with regards of the surname and first_name
+			function insertRow() {
+				var table = document.getElementById('nameTable').insertRow(0);
+				var name = table.insertCell(0);
+				var surname = table.insertCell(1);
+				name.innerHTML = 'New Name';
+				surname.innerHTML = 'New Surname';
+			}
+			// this is the function that will allow the user to change the text of the chosen cell via prompt
+			function modifyCell(params) {
+				const rowNumber = window.prompt(
+					'Please select row to change color(0,1,2,3):',
+					'0'
+				);
+				const columnNumber = window.prompt(
+					'Please select cell to change color(0,1):',
+					'0'
+				);
+				const content = window.prompt('Input new cell text:');
+
+				var row =
+					document.getElementById('table2').rows[parseInt(rowNumber, 10)].cells;
+				row[parseInt(columnNumber, 10)].innerHTML = content;
+			}
+		</script>
+	</body>
+</html>

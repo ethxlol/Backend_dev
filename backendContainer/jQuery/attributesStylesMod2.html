@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>jQuery lesson</title>
+		<script src="jquery-3.6.0.js"></script>
+	</head>
+	<body>
+		<style>
+			img {
+				width: 100%;
+				height: 100%;
+			}
+
+			#example {
+				width: 235px;
+				height: 220px;
+			}
+		</style>
+		<div id="example">
+			<a
+				><img
+					src="https://cdn.pixabay.com/photo/2018/04/13/16/13/pixel-3316924_960_720.png"
+					alt="Bulbasaur"
+					title="Bulbasaur"
+			/></a>
+		</div>
+		<ul>
+			<li><span>Height: </span><span id="height"></span></li>
+			<li><span>Width: </span><span id="width"></span></li>
+			<li><span>innerHeight: </span><span id="innerH"></span></li>
+			<li><span>innerWidth: </span><span id="innerW"></span></li>
+			<li><span>outerHeight: </span><span id="outerH"></span></li>
+			<li><span>outerWidth: </span><span id="outerW"></span></li>
+			<li><span>offset: </span><span id="offset"></span></li>
+			<li><span>position: </span><span id="position"></span></li>
+		</ul>
+
+		<script>
+			// this is the one that fires the function that is for the function below
+			$(function () {
+				showValues();
+				$('#example').click(changeValues);
+			});
+			// this will change the size of the image when we click the picture, as the onclick function of the img file
+			function changeValues(params) {
+				$('#example').height(440);
+				$('#example').width(470);
+				showValues();
+			}
+			// we are setting the function that will show the values of our image in the UL list
+			function showValues(params) {
+				$('#height').html($('#example').height());
+				$('#width').html($('#example').width());
+				$('#innerH').html($('#example').innerHeight());
+				$('#innerW').html($('#example').innerWidth());
+				$('#outerH').html($('#example').outerHeight());
+				$('#outerW').html($('#example').outerWidth());
+				$('#offset').html(
+					$('#example').offset().top + ', ' + $('#example').offset().left
+				);
+				$('#position').html(
+					$('#example').position().top + ', ' + $('#example').position().left
+				);
+			}
+		</script>
+	</body>
+</html>

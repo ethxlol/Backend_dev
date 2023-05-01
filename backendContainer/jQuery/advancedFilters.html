@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="example">
+			<p id="para1" class="classA">The first paragraph</p>
+			<p class="classA">The second paragraph</p>
+			<p class="classB" id="para3">The third paragraph</p>
+			<p class="classB" id="para4" lang="en-us">The fourth paragraph</p>
+			<p class="classA" id="para5" lang="en-gb">The fifth paragraph</p>
+		</div>
+
+		<script>
+			$('document').ready(function () {
+				// getting really specific targeting the text node inside of the child, everything inside of <p> that contains th consecutive
+				$("p:contains('th')").css('font-size', '30px');
+				// selecting all p that have children, so a p that is a parent to something, in this case they all have a text child node
+				$('p:parent').css('border', '3px dashed blue');
+				// the div har 3 elements of classA, so its selected and will give a red border around it
+				$('div:has(p[class=classA])').css('border', '3px solid red');
+				// all the p are inside of the div, with this only the first child is selected and painted blue in the font
+				$('div p:first-child').css('color', 'blue');
+				// the fifth paragraph is the last of the p inside the div, so it gets painted red
+				$('div p:last-of-type').css('color', 'red');
+				// so this is not index based, but the nth is an abbreviation of the number of child that is inside of the div, so in this case its
+				// literally the 3rd or 3nth p
+				$('div p:nth-child(3)').css('background-color', 'yellow');
+				// same as above only the second p this time, so remember this is not index from 0-10 but literally the 1st or 1nth 2nd or 2nth in the list
+				$('div p:nth-child(2)').css('background-color', 'grey');
+				// this is the activity, changing the background color of the first p containing th text, we are filtering 2 times here
+				// first filtering the th in p's and then we are filtering it to only affect the first child i.e the first one with a th in it
+				$('div p:contains("Th"):first-child').css('background-color', 'orange');
+				// the nth number are interesting, because we can add expressions to it, like in this case i've added the every 2n (2*) child to be affected
+				// so 2,4,6,8 if it was every 3n it would be 3,6,9 and 7n it would be 7,14,21
+				$('div p:nth-child(2n)').css('font-size', '80px');
+			});
+		</script>
+	</body>
+</html>

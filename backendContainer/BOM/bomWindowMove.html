@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p><button id="popup" onclick="openWin()">Start</button></p>
+		<script>
+			// ok so here we made a simple chain of operations, firstly above we made the button and gave it the onclick
+			// then we are determining the size of sed window before we move it to the next function after 5000ms(5s)
+			let myWindow;
+			function openWin() {
+				myWindow = window.open('', '', 'width= 200 height= 100');
+				setTimeout(() => {
+					resizeWin();
+				}, 5000);
+
+				// so this function will resize the window to 300x300px before sending it to the next function after 5000ms(5s)
+				function resizeWin() {
+					myWindow.resizeTo(300, 300);
+					setTimeout(() => {
+						moveWinTo();
+					}, 5000);
+				}
+				// than this function will actually to 2 things, it will move the window to a different set location, than it will close after 5000ms
+				function moveWinTo() {
+					myWindow.moveTo(1, 999);
+					setTimeout(() => {
+						myWindow.close();
+					}, 5000);
+				}
+			}
+		</script>
+	</body>
+</html>

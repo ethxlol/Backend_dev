@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>lol</title>
+		<script>
+			function validateForm() {
+				let x = document.forms['myForm']['fname'].value;
+				// checking if the form is left blank
+				if (x == '') {
+					alert('Name must be filled out');
+					return false;
+					// checking if the name is greater than 10 chars
+				} else if (x.length > 10) {
+					alert('this is longer than 10 chars!');
+					return false;
+				} else return true;
+			}
+		</script>
+	</head>
+	<body>
+		<h2>JavaScript Validation</h2>
+		<!-- this is the form that we can fill in -->
+		<form name="myForm" onsubmit="return validateForm()" method="post">
+			Name: <input type="text" name="fname" />
+			<input type="submit" value="Submit" />
+		</form>
+	</body>
+</html>

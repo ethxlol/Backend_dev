@@ -1,0 +1,71 @@
+.longtxt {
+	width: 50%;
+}
+.hellow {
+	color: blue;
+}
+
+.par3 {
+	margin: 2px 20px 5px 10px;
+	padding: 2px 20px 5px 10px;
+}
+
+.big {
+	font-size: 200%;
+}
+
+.green {
+	background-color: green;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/* adding a border to the table */
+table,
+th,
+td {
+	border: 2px dashed red;
+}
+
+/* adding padding to the headings */
+th {
+	padding: 10px;
+}
+/* making the first paragraph of the 10 fixed to stick to a spot on the page
+quite annoying */
+#p1 {
+	position: fixed;
+	left: 400px;
+	top: 400px;
+}
+
+/* making a little scroll window for the text */
+.txt {
+	width: 150px;
+	height: 100px;
+	overflow-x: scroll;
+}
+
+/* sticking the content in the right side of the page */
+.stuckToWebBorder {
+	width: 150px;
+	margin: auto;
+	position: absolute;
+	right: 0;
+}
+
+/* this is setting the background image correctly in the website */
+#bckgrndPika {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}

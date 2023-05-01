@@ -1,0 +1,84 @@
+/* button {
+	background-color: orange;
+	color: yellow;
+} */
+
+/* .large {
+	font-size: 300%;
+}
+
+.colourful {
+	background-color: blueviolet;
+}
+
+#button3 {
+	color: red;
+}
+
+* {
+	color: magenta;
+}
+
+button,
+pre {
+	background-color: cyan;
+} */
+
+/* background image */
+#pikachu {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#button1 {
+	text-shadow: 3px 3px 8px orange;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.head1 {
+	text-shadow: 3px 8px orange;
+	text-decoration: overline red double 5px;
+	text-align: center;
+}
+
+.head2 {
+	letter-spacing: 10px;
+	text-decoration: line-through blue dotted;
+}
+
+.head3 {
+	letter-spacing: -1px;
+	text-shadow: 2px 2px blue;
+	text-decoration: underline green double 1px;
+	direction: rtl;
+	unicode-bidi: bidi-override;
+}
+.myName {
+	text-decoration: underline green double 10px;
+	text-shadow: green 5px 5px 3px;
+	text-align: center;
+}
+.myButton {
+	height: 100px;
+	width: 200px;
+}
+.smallerButtons {
+	width: 30%;
+	min-width: 50px;
+	max-width: 100px;
+}
+
+li,
+p {
+	display: inline;
+}
+.block {
+	display: block;
+}
+#Instagram {
+	visibility: hidden;
+}

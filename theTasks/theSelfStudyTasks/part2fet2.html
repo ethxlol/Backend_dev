@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<!-- in the body we are letting a function print the size of the window in the alert or console.log -->
+	<body onload="printSize()" onresize="printSize()">
+		<!-- a button that will give a prompt where the user can customize a table  -->
+		<table id="myTable"></table>
+		<button id="createButton" onclick="createTable()">
+			Create your custom table
+		</button>
+
+		<!-- A dropdown list containing fruits! -->
+		<select id="fruitsSelected">
+			<option>Apple</option>
+			<option>Banana</option>
+			<option>Pineapple</option>
+			<option>Kiwi</option>
+		</select>
+
+		<!-- The button that will remove the selected element in the dropdown list -->
+		<button id="removeButton()" onclick="removeSelected()">
+			Remove selected value
+		</button>
+
+		<!-- Buttons that will display pikachu and bulbasaur -->
+		<div>
+			<button onclick="displayBulbasaur()">Bulbasaur</button>
+			<button onclick="displayPikachu()">Pikachu</button>
+		</div>
+
+		<!-- this picture of pikachu has some secrets -->
+		<!-- when we mouse over it, the p text lorem ipsum underneath will get some elements highlighted in blue -->
+		<p>Move mouse to Pikachu to see what happens!</p>
+		<img
+			onmouseover="highlight()"
+			onmouseout="turnOffHighlight()"
+			src="https://cdn.pixabay.com/photo/2016/09/09/11/59/pokemon-1656997_960_720.png"
+			width="240"
+			height="200"
+		/>
+
+		<p>
+			Lorem ipsum dolor sit amet, <i>consectetur adipiscing elit</i>. Sed
+			hendrerit magna id augue tincidunt, eget hendrerit nulla fringilla.
+			<i>Maecenas</i> congue mauris et nulla dignissim tincidunt. Nam bibendum
+			metus ut mi aliquam, vel interdum neque aliquam. Vestibulum tincidunt erat
+			vel pharetra suscipit. Sed quis nunc tincidunt, vehicula enim non,
+			scelerisque nisi. Donec eget est risus. Cras varius lobortis ex, ac
+			feugiat massa molestie in. Duis sit amet sodales quam. Nunc gravida elit
+			id metus rutrum, sed interdum justo bibendum. Mauris auctor ullamcorper
+			libero, quis accumsan sapien euismod a. Vivamus a lacinia dolor, at congue
+			ex. Nam id magna in velit efficitur consequat. Suspendisse potenti.
+		</p>
+		<script>
+			// the js of creating your own table via the prompt
+			function createTable(params) {
+				rowNumber = window.prompt('Input number of rows', 1);
+				columnNumber = window.prompt('Input number of columns', 1);
+				for (var r = 0; r < parseInt(rowNumber, 10); r++) {
+					var row = document.getElementById('myTable').insertRow(r);
+					for (var c = 0; c < parseInt(columnNumber, 10); c++) {
+						var cell = row.insertCell(c);
+						cell.innerHTML = 'Row-' + r + ' Column-' + c;
+					}
+				}
+				createButton.style.visibility = 'hidden';
+			}
+			// this is the function that will get the element and remove selected
+			function removeSelected(params) {
+				var x = document.getElementById('fruitsSelected');
+				x.remove(x.selectedIndex);
+			}
+			// the size of the browser inner will be alerted upon resize and opening, we can also set this to a console.log
+			function printSize(params) {
+				var width = document.documentElement.clientWidth;
+				var height = document.documentElement.clientHeight;
+
+				// alert('Width: ' + width);
+				// alert('Height: ' + height);
+				console.log('Width: ' + width);
+				console.log('Height: ' + height);
+			}
+
+			// pikachu and bulbasaur images
+			function displayPikachu() {
+				let pikachu = new Image();
+				pikachu.src =
+					'https://cdn.pixabay.com/photo/2016/09/09/11/59/pokemon-1656997_960_720.png';
+				pikachu.width = '240';
+				pikachu.height = '200';
+				displayNewImage(pikachu);
+			}
+
+			function displayBulbasaur() {
+				let bulbasaur = new Image();
+				bulbasaur.src =
+					'https://cdn.pixabay.com/photo/2018/04/13/16/13/pixel-3316924_960_720.png';
+				bulbasaur.width = '235';
+				bulbasaur.height = '220';
+				displayNewImage(bulbasaur);
+			}
+			// removing the image displayed and replacing it with the other one clicked, so the child element is removed and appended by the new one
+			function displayNewImage(newImage) {
+				var images = document.getElementsByTagName('img');
+				for (var p = 0; p < images.length; p++) {
+					images[0].parentNode.removeChild(images[0]);
+				}
+				// this is what is adding the new image
+				document.body.appendChild(newImage);
+			}
+			// when we are loading the page the getItalicItems will start
+			var italicItems;
+			window.onload = getItalicItems();
+			// the text that is inside of an <i></i> will be italic
+			function getItalicItems(params) {
+				italicItems = document.getElementsByTagName('i');
+			}
+			// when we hover over the image of pikachu the italic items will be highlighted with blue
+			function highlight(params) {
+				for (let i = 0; i < italicItems.length; i++) {
+					italicItems[i].style.color = 'blue';
+				}
+			}
+			// than go back to black when we mouse out from it
+			function turnOffHighlight(params) {
+				for (let i = 0; i < italicItems.length; i++) {
+					italicItems[i].style.color = 'black';
+				}
+			}
+		</script>
+	</body>
+</html>

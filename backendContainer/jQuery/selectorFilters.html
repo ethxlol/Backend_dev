@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="jquery-3.6.0.js"></script>
+	</head>
+	<body>
+		<!-- Adding paragraphs with id and class to show how we can manipulate it's styling with jQuery -->
+		<div id="example">
+			<p id="para1" class="classA">The first Paragraph.</p>
+			<p class="classB">The second Paragraph.</p>
+			<p id="para3">The third Paragraph.</p>
+			<p id="para4" lang="en-us">The fourth Paragraph.</p>
+			<p id="para5" lang="en-gb">The fifth Paragraph.</p>
+		</div>
+		<!-- this is how we add styling dynamically using jQuery -->
+		<!-- The jQuery selectors i.e ('p'),('p.classB') are what we are using to identify what we want to manipulate
+        like p would select paragraphs, .classA would select a class, #example would select an id and p.classB would select the p elements in the class -->
+		<script>
+			$('document').ready(function () {
+				$('p').css('color', 'blue');
+				$('.classA').css('border', '3px solid red');
+				$('#example').css('background-color', 'yellow');
+				$('p.classB').css('font-size', '20px');
+				$('#para3').css('text-align', 'right');
+				$('#example').css('border', '10px dashed red');
+				// we can also filter with the :
+				// like underneath, i wanted the second paragraph ie index of (1)
+				// and the last one to get the solid green border, there is no filter for second so thats why we are using eq(equals to)
+				$('#example p:eq(1)').css('border', '10px solid green');
+				$('#example p:last').css('border', '10px solid green');
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="example">
+			<p id="para1" class="classA">The first paragraph</p>
+			<p class="classA">The second paragraph</p>
+			<p class="classB" id="para3">The third paragraph</p>
+			<p class="classB" id="para4" lang="en-us">The fourth paragraph</p>
+			<p class="classA" id="para5" lang="en-gb">The fifth paragraph</p>
+		</div>
+
+		<script>
+			// we are starting with the 3rd element, then we are adding borders to adjacent siblings and parents until we meet the body
+			// the only parent before the body is the div container, so from the third and before it using prev and after using next, and parent until but not including body
+			$(document).ready(function () {
+				var elem = $('#para3');
+				elem.prev().css('border', '3px solid red');
+				elem.next().css('border', '3px solid blue');
+				elem.parentsUntil($('body')).css('border', '3px dashed green');
+				elem.prev().css('background-color', 'yellow');
+				elem.next().next().css('background-color', 'blue');
+
+				// we are selecting the div and giving its children function of changing the font-size and margin over each iteration
+				var leftmargin = 0;
+				var fontSize = 20;
+				$('#example')
+					.children()
+					.each((index, element) => {
+						$(element)
+							.css('font-size', fontSize + 'px')
+							.css('margin-left', leftmargin);
+						fontSize += 2;
+						leftmargin += 10;
+					});
+			});
+		</script>
+	</body>
+</html>

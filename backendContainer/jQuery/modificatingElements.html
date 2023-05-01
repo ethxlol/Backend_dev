@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="example">
+			<p id="para1" class="classA">The first paragraph.</p>
+			<p class="classA">The second paragraph.</p>
+			<p class="classB" id="para3">The third paragraph.</p>
+			<p class="classB" id="para4" lang="en-us">The fourth paragraph.</p>
+			<p class="classA" id="para5" lang="en-gb">The fifth paragraph.</p>
+		</div>
+		<div id="example2">
+			<p id="para21" class="classA">The first paragraph.</p>
+			<p class="classA">The second paragraph.</p>
+			<p class="classB" id="para23">The third paragraph.</p>
+			<p class="classB" id="para24" lang="en-us">The fourth paragraph.</p>
+			<p class="classA" id="para25" lang="en-gb">The fifth paragraph.</p>
+		</div>
+		<div id="example3">
+			<p class="classA">The first paragraph.</p>
+			<p class="classA">The second paragraph.</p>
+			<p class="classB">The third paragraph.</p>
+			<p class="classB" lang="en-us">The fourth paragraph.</p>
+			<p class="classA" lang="en-gb">The fifth paragraph.</p>
+		</div>
+		<button onclick="insertAround()">Insert around</button>
+		<button onclick="remove()">Remove</button>
+		<button onclick="replace()">Replace</button>
+
+		<script>
+			function insertAround(params) {
+				// wrapping all p elements with a border individually, so we are wrapping the p with a new div
+				$('#example p').wrap("<div style='border:3px solid red'/>");
+				// wrapping a border around all of the p inside of example2, so a whole border instead of individually, in essence we are wrapping the parent of the p
+				$('#example2 p').wrapAll("<div style='border:3px solid red'/>");
+				// this is removing the parent element of the p inside of the div
+				$('#example3 p').unwrap();
+			}
+
+			function remove(params) {
+				// removing all p in classA including the embedded data and event handlers
+				$('#example p.classA').remove();
+				// detaching all class B p elements, in this case it will just remove it since we have no data or events bound to our p
+				// normally with detach you will not remove any handlers or data, this is the difference
+				$('#example2 p.classB').detach();
+				// empty is removing all the child elements from the matched elements
+				$('#example3').remove();
+			}
+
+			function replace(params) {
+				// we are replacing all the p with id with replaced 1
+				$('#example p[id]').replaceWith('<div>replaced 1</div>');
+				// we are replacing the div parent and all p with div replaced 2
+				$('<div>replaced 2</div>').replaceAll('#example2 p[id]');
+				$('#example3 p').replaceWith(replacement);
+			}
+
+			function replacement(params) {
+				if ($(this).text().indexOf('first') != -1) {
+					return '<p>The new first paragraph</p>';
+				} else {
+					return this.outerHTML;
+				}
+			}
+		</script>
+	</body>
+</html>

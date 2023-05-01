@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			#buttonStyle button {
+				margin-top: 20px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<button onclick="goBack()">
+				Go back five sites in the past or the max amount if you haven't visited
+				5
+			</button>
+		</p>
+
+		<!-- these are button that allows us to navigate through the history of our browser -->
+		<div id="buttonStyle">
+			<button onclick="history.go(-2)">go 2 pages back</button>
+			<br />
+			<button onclick="history.forward()">go forward 1 page</button>
+			<br />
+			<button onclick="history.back">go back 1 page</button>
+
+			<script>
+				// this part will make the history go back 5 pages if the length of pages are >5
+				function goBack(params) {
+					if (history.length > 5) {
+						history.go(-5);
+						//  this will make the history go back to the max amount of pages you have visited if you have visited less than 5 pages
+					} else {
+						history.go(-(history.length - 1));
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

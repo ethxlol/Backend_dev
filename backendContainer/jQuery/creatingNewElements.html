@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="example">
+			<p id="para1" class="classA">The first paragraph.</p>
+			<p class="classA">The second paragraph.</p>
+			<p class="classB" id="para3">The third paragraph.</p>
+			<p class="classB" id="para4" lang="en-us">The fourth paragraph.</p>
+			<p class="classA" id="para5" lang="en-gb">The fifth paragraph.</p>
+		</div>
+		<button onclick="getInfo()">Current Info</button>
+		<button onclick="changeDiv()">Change div</button>
+		<button onclick="changeOne()">Change paragraph one</button>
+		<button onclick="changeClass()">Change class</button>
+
+		<script>
+			// we are collecting the info about the div and the p elements and alerting them in the browser
+			function getInfo() {
+				alert($('#example').html());
+				alert($('p').text());
+			}
+			// we are changing the div contents to new div content, so all the elements inside on the outside of the scope now
+			function changeDiv() {
+				$('#example').html('new div content');
+			}
+			// we are changing the text inside the first paragraph
+			function changeOne() {
+				$('#para1').text('New para1 text');
+			}
+			// we are changing all of the elements in classA to a google link
+			function changeClass(params) {
+				$('.classA').html("<a href='https://google.com'> Now it' link!</a>");
+			}
+		</script>
+	</body>
+</html>

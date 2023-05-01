@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>jQuery lesson</title>
+		<script src="jquery-3.6.0.js"></script>
+	</head>
+	<body>
+		<!-- we are just setting some buttons and paragraphs to test them on for our custom animations -->
+		<p>Paragraph 1</p>
+		<p>Paragraph 2</p>
+		<button id="anim1">Animation 1</button>
+		<button id="anim2">Animation 2</button>
+		<button id="anim3">Animation 3</button>
+
+		<script>
+			// an animation that will slowly shrink the font and margins to 16px
+			$(function () {
+				$('#anim1').click(function () {
+					$('p').animate(
+						{
+							padding: 0,
+							marginTop: 16,
+							marginBottom: 16,
+							marginLeft: 0,
+							marginRight: 0,
+							fontSize: 16,
+						},
+						'slow'
+					);
+				});
+				// an animation that will change the padding and margin fast (moving it slightly toward center and spreading it a little vertically)
+				$('#anim2').click(function () {
+					$('p').animate(
+						{
+							padding: 10,
+							margin: 10,
+						},
+						'fast',
+						afterCompletion
+					);
+				});
+				// this will change the font size to 30
+				$('#anim3').click(function () {
+					$('p').animate(
+						{
+							fontSize: '30px',
+						},
+						'fast'
+					);
+				});
+			});
+
+			function afterCompletion() {
+				console.log('animation finished');
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// so we are in essence doing this via the dom:
+			// <h2>JavaScript HTML DOM</h2>
+			let heading = document.createElement('h2');
+			let node = document.createTextNode('JavaScript HTML DOM');
+			heading.appendChild(node);
+			document.body.appendChild(heading);
+
+			// so we are in essence doing this via the dom:
+			// <p>Add a new HTML Element</p>
+			let para = document.createElement('p');
+			node = document.createTextNode('Add a new HTML Element');
+			para.appendChild(node);
+			document.body.appendChild(para);
+
+			// Create and append a div with the name of paragraph
+			let paragraphs = document.createElement('div');
+			document.body.appendChild(paragraphs);
+
+			// we are in essence doing this via the dom:
+			// <p>This is a paragraph.</p> and appending it to the div we called paragraphs
+			// since we already have declared para and node we can just reuse it and change the values, it will not overwrite it
+			para = document.createElement('p');
+			node = document.createTextNode('This is a paragraph.');
+			para.appendChild(node);
+			// this is how we append to the div
+			paragraphs.appendChild(para);
+
+			// we are in essence doing this via the dom:
+			// <p>This is another paragraph.</p> and appending it to the div we called paragraphs
+			para = document.createElement('p');
+			node = document.createTextNode('This is another paragraph.');
+			para.appendChild(node);
+			paragraphs.appendChild(para);
+		</script>
+	</body>
+</html>

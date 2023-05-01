@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p>Paragraph 1</p>
+		<p>Paragraph 2</p>
+		<button id="fadeinButton">Show</button>
+		<button id="fadeoutButton">Hide</button>
+		<button id="toggleButton">Toggle</button>
+		<button id="fadetoButton">Fade to</button>
+
+		<script>
+			$(function () {
+				// this will fade in pretty slow, with a faster to slower speed or vice versa, cant remember
+				$('#fadeinButton').click(function () {
+					$('p').fadeIn('slow');
+				});
+				// this will fade out a little faster than the fade in, because it has the linear to it, so it will not do it in different speeds
+				$('#fadeoutButton').click(function () {
+					$('p').fadeOut('slow', 'linear');
+				});
+				// so this is a fade in and out toggle button, this will make it fade in and out from visible to invisible
+				$('#toggleButton').click(function () {
+					$('p').fadeToggle('fast', afterCompletion);
+				});
+				// this will change the opacity of the paragraphs, the last value sets the strength
+				$('#fadetoButton').click(function () {
+					$('p').fadeTo('fast', 0.5);
+				});
+			});
+			// again for bugfix / callback
+			function afterCompletion() {
+				console.log('animation finished');
+			}
+		</script>
+	</body>
+</html>

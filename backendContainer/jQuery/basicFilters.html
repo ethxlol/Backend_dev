@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="jquery-3.6.0.js"></script>
+	</head>
+	<body>
+		<!-- <div id="example">
+			<!-- setting some paragraphs to work in the jQuery with using filters -->
+		<!-- <p id="para1" class="classA">The first paragraph</p>
+			<p class="classA">The second paragraph</p>
+			<p class="classB" id="para3">The third paragraph</p>
+			<p class="classB" id="para4">The fourth paragraph</p>
+			<p class="classA" id="para5">The fifth paragraph</p> -->
+
+		<!-- function that will set the jQuery to manipulate the paragraphs above -->
+		<!-- <script>
+				$('document').ready(function () {
+					$('#example p:first').css('color', 'blue');
+					$('#example p:last').css('color', 'red');
+					$('#example p:even').css('background-color', 'yellow');
+					$('#example p:odd').css('background-color', 'grey');
+					$('#example p.classA:even').css('border', '3px solid blue');
+					$('#example p.classA:even').css('border', '3px solid blue');
+					// gt(1) is greater than so all p that have a greater index than 1
+					$('#example p:gt(1)').css('font-size', '30px');
+					// p:not(p:eq(2)) means that all indexes that are not eq(equal to) the index of 2
+					$('#example p:not(p:eq(2))').css('font-family', 'Comic Sans MS');
+				});
+			</script> -->
+		<!-- </div> -->
+
+		<!-- this is the activity for this leasson -->
+
+		<div id="example">
+			<p class="classA" id="para1">the first paragraph</p>
+			<p class="classB" id="para3">the third paragraph</p>
+			<p class="classB" id="para4" lang="en-us">the fourth paragraph</p>
+			<p class="classA" id="para5" lang="en-gb">the fifth paragraph</p>
+			<p class="classB" id="para4" lang="en-us">the sixth paragraph</p>
+			<p class="classB" id="para4" lang="en-us">the seventh paragraph</p>
+		</div>
+
+		<script>
+			$('document').ready(function () {
+				// paragraphs that are odd from their parents in index, so (1,3,5)
+				$('p[class]:odd').css('text-align', 'right');
+				// paragraphs that are odd from the children of their parents so (1,3,5 again) because this is the new start of the index because it starts from the first child of the parent (div)
+				$('p:odd[class]').css('background-color', 'yellow');
+			});
+		</script>
+	</body>
+</html>

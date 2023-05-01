@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="example">
+			<p id="para1" class="classA">The first paragraph.</p>
+			<p class="classA">The second paragraph.</p>
+			<p class="classB" id="para3">The third paragraph.</p>
+			<p class="classB" id="para4" lang="en-us">The fourth paragraph.</p>
+			<p class="classA" id="para5" lang="en-gb">The fifth paragraph.</p>
+		</div>
+		<button onclick="append()">Append</button>
+		<button onclick="prependTo()">Prepend to</button>
+		<button onclick="before()">Before</button>
+		<button onclick="insertAfter()">Insert after</button>
+		<button onclick="prepend()">prepend</button>
+		<button onclick="taskButton()" id="taskButton">Double and copy</button>
+
+		<style>
+			#taskButton {
+				display: block;
+				margin-top: 100px;
+			}
+		</style>
+
+		<script>
+			// adding some text to the p instead of replacing it append()
+			function append() {
+				$('#para1').append('APPENDED para1 text');
+			}
+			// Prepend to, in our case, puts other paragraphs into the first one before its content
+			function prependTo() {
+				$('#example p:last').prependTo('#example p:first');
+			}
+			// we are prepending some text to the start of the paragraphs inside of the div
+			function prepend() {
+				$('#example p').prepend('Hi there! ');
+			}
+			// we are putting something before all the p, in this case we are sort of making a dashed line border at the top of each p
+			function before(params) {
+				$('p').before('------------------------------');
+			}
+			// we are inserting something after all the p, in this case we are creating an asterix border manually by adding a line of asterix's under each p
+			// note that this one will make a new one under the older one instead of above where it will add in line
+			function insertAfter(params) {
+				$('<p>***********************************</p>').insertAfter('p');
+			}
+			// this is the activity, we are making a button that will copy the first paragraph, double it and insert it after the button
+			// i've styled this button using the dom just so its easier to see, it will also copy the top
+			// also using the text method will NOT parse HTML content
+			function taskButton(params) {
+				$('#para1').append($('#para1').text());
+				$('<p>' + $('#para1').text() + '</p>').insertAfter('#taskButton');
+			}
+		</script>
+	</body>
+</html>

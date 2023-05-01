@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- we are making a button that will have a confirm or cancel prompt -->
+		<h2>JavaScript Confirm Box</h2>
+		<button onclick="myFunction()">Try it!</button>
+		<p id="demo"></p>
+
+		<!-- this is how we would do it if we wanted it as a prompt instead of a confirm box -->
+		<h2>JavaScript Prompt</h2>
+		<button onclick="myFunction2()">Try it</button>
+		<p id="demo2"></p>
+
+		<script>
+			// upon pressing the buttons either options from the if statement below will be printed under the button in the web page
+			// confirm will return a boolean, so the if statement will be true or false and this the if is true and the else is false
+			function myFunction(params) {
+				var txt;
+				if (confirm('Press a button!')) {
+					txt = 'You pressed OK!';
+				} else {
+					txt = 'You pressed Cancel! :(';
+				}
+				document.getElementById('demo').innerHTML = txt;
+			}
+			// this is the txt, we are dynamically adding it to the p with the demo id
+
+			// this is how we would do it with a normal prompt solution:
+			function myFunction2() {
+				let text;
+				let person = prompt('Please enter your name:', 'Harry Potter');
+				if (person == null || person == '') {
+					text = 'User cancelled the prompt.';
+				} else {
+					text = 'Hello ' + person + '! How are you today?';
+				}
+				document.getElementById('demo2').innerHTML = text;
+			}
+		</script>
+	</body>
+</html>

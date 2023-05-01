@@ -1,0 +1,27 @@
+p {
+	padding: 10px 10px;
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	border-radius: 20px;
+	line-height: 50px;
+}
+
+#para1 {
+	border: 3px solid green;
+	border-radius: 10px;
+}
+
+#para2 {
+	border-style: dashed solid;
+	border-width: 3px 7px;
+	border-color: brown blue;
+	margin: 20px 0 0 0;
+}
+#para3 {
+	border: 1cm double yellow;
+}
+#para4 {
+	border-style: double dashed;
+	border-width: thick;
+}

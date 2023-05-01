@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>The Window</h1>
+		<h2>The resizeBy() Method</h2>
+		<p>Open a new window and resize it to 300 x 300:</p>
+		<button onclick="openWin()">Create a window</button>
+		<button onclick="resizeWin()">Resize Window</button>
+
+		<h1>The Window object</h1>
+		<h2>The moveTo() and moveBy Methods</h2>
+		<p><button onclick="openWin2()">Create a window2</button></p>
+		<p><button onclick="moveWinTo()">Move the window to 150 150</button></p>
+		<p><button onclick="moveWinBy()">Move the window to 75 75</button></p>
+
+		<script>
+			// declaring the window and creating a function that will open a window
+			// this will resize the window with a timer
+			let myWindow;
+			function openWin() {
+				myWindow = window.open('', '', 'width =200, height=100');
+				console.log('function triggered');
+				setTimeout(() => {
+					resizeWin();
+				}, 5000);
+			}
+			// this will resize the window we created
+			// and this will automatically resize it after 5000ms
+			function resizeWin() {
+				myWindow.resizeTo(300, 300);
+				console.log('function triggered for resize');
+				setTimeout(() => {
+					moveWinTo();
+				}, 5000);
+			}
+
+			let myWindow2;
+			function openWin2() {
+				myWindow2 = window.open('', '', 'width=400, height=400');
+			}
+			// moving it to a different location this case its to the bottom left
+			// additionally we set a timeout function for it, so when 5000ms had passed the window will close
+			function moveWinTo() {
+				myWindow2.moveTo(1, 999);
+				setTimeout(() => {
+					myWindow2.close();
+				}, 5000);
+			}
+			// this will move it diagonally towards the right
+			function moveWinBy() {
+				myWindow2.moveBy(75, 75);
+			}
+		</script>
+	</body>
+</html>

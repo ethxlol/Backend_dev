@@ -1,0 +1,3 @@
+<!-- this is a crazy one, if someone logs information now on a website, the information of the keystrokes are showed in the console log -->
+window.addEventListener("keydown", function(e){console.log("you clicked: " +
+e.key);});

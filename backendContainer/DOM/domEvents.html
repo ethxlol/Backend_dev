@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="domEvents.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p id="changeFont">Size will change with a 50% chance</p>
+		<p id="date">This will show the current date and refresh every 10s</p>
+		<p id="colorChange">This will change between 3 colors with equal chance</p>
+		<h1 id="myHeader">Click on this text!</h1>
+		<button onclick="clickMe()" id="button1">Click Me!</button>
+
+		<script>
+			// this is a button that when clicked will alert a message and when that alert is checked the button will change its text content
+			document.getElementById('button1').addEventListener('click', changeText);
+			function clickMe() {
+				alert('hello world');
+			}
+			function changeText() {
+				this.innerHTML = 'Clicked';
+			}
+			// this is the function that will generate a random color of 3 with an equal chance
+			function getRandomColor() {
+				var random = Math.random();
+				if (random < 1 / 3) {
+					return 'yellow';
+				} else if (random < 2 / 3) {
+					return 'blue';
+				} else {
+					return 'cyan';
+				}
+			}
+			// and this is how we implement the getRandomColor to the p id colorChange
+			setInterval(
+				() =>
+					(document.getElementById('colorChange').style.backgroundColor =
+						getRandomColor()),
+				3000
+			);
+			// we are changing the font size
+			// // setInterval(() => {
+			// 	currentFont = window
+			// 		.getComputedStyle(document.getElementById('changeFont'), null)
+			// 		.getPropertyValue('font-size');
+
+			// 	parsedFont = parseFloat(currentFont.slice(0, -2));
+			// 	document.getElementById('changeFont').style.fontSize =
+			// 		(Math.random() > 0.5 ? parsedFont * 2 : parsedFont / 2).toString() +
+			// 		'px';
+			// }, 5000);
+			// This makes dynamically makes the date show and refreshes it every 10 seconds
+			setInterval(
+				() => (
+					(document.getElementById('date').innerHTML = 'Date : ' + Date()),
+					10000
+				)
+			);
+			// Making a function with eventListener to alert some text when clicking the h1 id myHeader
+			// Using eventListener, we can add multiple events to the same thing, so we dont have to make new ids and such
+
+			document.getElementById('myHeader').addEventListener('click', myFunction);
+			// so her we have added a style change also, changing the background color on hovering the mouse over it
+			document
+				.querySelector('#myHeader')
+				.addEventListener('mouseover', myFunction2);
+
+			function myFunction() {
+				alert('Hello bitches!');
+			}
+			// the function for changing the color when mouseover
+			function myFunction2() {
+				console.log('Mouse over event triggered');
+				var randomColor =
+					'#' + Math.floor(Math.random() * 16777215).toString(16);
+				document.getElementById('myHeader').style.backgroundColor = randomColor;
+			}
+			// this will make the alert pop up when the web browser is resized
+			window.addEventListener('resize', myFunction);
+			function myFunction() {
+				alert('hello world!');
+			}
+			// this is tied to the same element, but calls it with a parameter inside of it
+			window.addEventListener('resize', () => myFunction('Emil'));
+			function myFunction(name) {
+				alert('hello' + name + '!');
+			}
+			// this is how we can handle where the information inputted by the user is stored
+			function handleSubmit(event) {
+				event.preventDefault();
+
+				const formData = new FormData(event.target);
+				const email = formData.get('email');
+				const password = formData.get('password');
+
+				console.log(`Submitted email: ${email}`);
+				console.log(`Submitted password: ${password}`);
+			}
+		</script>
+		<!-- this is the button to fill in email and password -->
+		<div>
+			<form onsubmit="handleSubmit(event)">
+				<label for="email">e-mail:</label>
+				<input type="text" id="email" name="email" />
+				<label for="password">password:</label>
+				<input type="password" id="password" name="password" />
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</body>
+</html>

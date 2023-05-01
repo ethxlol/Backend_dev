@@ -1,0 +1,21 @@
+div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	transition-property: width, height, transform;
+	transition-duration: 3s;
+	transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	transition-delay: 1s;
+	z-index: 1;
+	transform-style: preserve-3d;
+}
+
+div:hover {
+	width: 300px;
+	height: 300px;
+	transform: rotate(180deg);
+	z-index: -1;
+}
+#txt {
+	z-index: 99;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="jquery-3.6.0.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p id="para1">fadeSlowOnHover</p>
+		<p>Paragraph 1</p>
+		<p>Paragraph 2</p>
+		<button id="slidedownButton">Show</button>
+		<button id="slideupButton">Hide</button>
+		<button id="toggleButton">Toggle</button>
+
+		<script>
+			$(function () {
+				// basically the same as show
+				$('#slidedownButton').click(function () {
+					$('p').slideDown('slow');
+				});
+				// same as hide
+				$('#slideupButton').click(function () {
+					$('p').slideUp('slow', 'linear');
+				});
+				// same as toggle hide show
+				$('#toggleButton').click(function () {
+					$('p').slideToggle('fast', afterCompletion);
+				});
+				// this is the activity, we are just making the p id: para1 to slowly fade to 0.1 opacity on hover
+				$('#para1').hover(
+					function () {
+						$(this).fadeTo('slow', 0.1, afterCompletion);
+					},
+					// i didn't like that it stayed faded out, so i made it fade back in when we removed the mouse again
+					function () {
+						$(this).fadeTo('slow', 1, afterCompletion);
+					}
+				);
+			});
+			//  bugfix again / callback
+			function afterCompletion() {
+				console.log('animation finished');
+			}
+		</script>
+	</body>
+</html>
