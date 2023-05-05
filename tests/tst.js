@@ -1,3 +1,3 @@
 function action1() {
-	$(selector).replaceWith();
+	$(selector).replaceWith());
 }
