@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@2.3.1/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- this is a table like list  -->
+		<ul class="list-group">
+			<li class="list-group-item active">An item</li>
+			<li class="list-group-item">A second item</li>
+			<li class="list-group-item">A third item</li>
+			<li class="list-group-item">A fourth item</li>
+			<li class="list-group-item">And a fifth item</li>
+		</ul>
+
+		<!-- these are buttons and links that does nothing at the moment -->
+		<!-- this is a link that is active  -->
+		<div class="list-group">
+			<a
+				href="https://google.com"
+				class="list-group-item list-group-item-action active"
+				aria-current="true"
+				>The current link item</a
+			>
+			<!-- one that is not active -->
+			<a
+				href="https://www.youtube.com"
+				class="list-group-item list-group-item-action"
+				>A second link item</a
+			>
+			<!-- a button that we can src to something like a function or some child element -->
+			<button type="button" class="list-group-item list-group-item-action">
+				A fourth button item
+			</button>
+			<!-- this is a button we have disabled, so it is not clickable -->
+			<button
+				type="button"
+				class="list-group-item list-group-item-action"
+				disabled
+			>
+				A disabled button item
+			</button>
+		</div>
+
+		<br />
+		<br />
+		<br />
+
+		<!-- a table that is side scrollable -->
+		<!-- added the container-lg so it would fit the screen at any resolution-->
+		<div class="p-3">
+			<div class="table-responsive-xxl container-lg">
+				<table class="table table-primary table-striped table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">First</th>
+							<th scope="col">Last</th>
+							<th scope="col">Handle</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+						</tr>
+						<tr class="table-active">
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">
+								Some
+								extreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeemely
+								long content
+							</td>
+							<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- an image that is a figure class in bootstrap
+		creating a container for it so i can align it easily to the center of the browser -->
+		<div class="container text-center">
+			<!-- alignment again -->
+			<figure class="figure align mx-auto">
+				<img
+					title="Pikachu!"
+					class="figure-img img-fluid img-thumbnail"
+					src="https://i.pinimg.com/originals/c9/40/a3/c940a3dae3900d100990e5b697ef196c.jpg"
+					alt="Pika Pika"
+				/>
+				<!-- this is the caption that will appear underneath the image, ive edited it some -->
+				<figcaption
+					class="figure-caption fw-bold text-warning text-decoration-line-through text-center"
+				>
+					<i class="bi bi-emoji-heart-eyes align-self-center me-2"></i>Picachu!
+				</figcaption>
+			</figure>
+		</div>
+	</body>
+</html>
