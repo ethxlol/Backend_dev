@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+		/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- we are making some nav, this is in the list format, the pills refer to rounding the edges so its pill-shaped
+        also i centered it -->
+		<ul class="nav nav-pills justify-content-center">
+			<li class="nav-item">
+				<!-- this button we have activated, or link i should say, activated means that its blue and the one you start with -->
+				<a class="nav-link active" aria-current="page" href="#">Active</a>
+			</li>
+			<!-- here is a dropdown menu, we are toggling it on and off with the dropdown-toggle -->
+			<li class="nav-item dropdown">
+				<a
+					class="nav-link dropdown-toggle"
+					data-bs-toggle="dropdown"
+					href="#"
+					role="button"
+					aria-expanded="false"
+					>Dropdown</a
+				>
+				<!-- these are the items in the dropdown -->
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+					<!-- here we are just creating a line in the dropdown menu for the separate link -->
+					<li><hr class="dropdown-divider" /></li>
+					<li><a class="dropdown-item" href="#">Separated link</a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<!-- this is just a link that leads to google -->
+				<a class="nav-link" href="https://google.com">Link</a>
+			</li>
+			<li class="nav-item">
+				<!-- this is a link that we have disabled, and note if we disable we have to include the negative tab index -->
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+					>Disabled</a
+				>
+			</li>
+		</ul>
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light pt-5">
+			<div class="container-fluid">
+				<!-- the navbar-brand is the name of the company like a nav and usually navigates to the homepage of the site -->
+				<a class="navbar-brand" href="#">Navbar</a>
+				<!-- so after hitting a certain size the navbar collapses to a toggle menu with only the brandname and the rest
+                will be dropped down in a vertical list when clicking the toggle hamburger button -->
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle
+     navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								id="navbarDropdown"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Dropdown
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a
+								class="nav-link disabled"
+								href="#"
+								tabindex="-1"
+								aria-disabled="true"
+								>Disabled</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- added some dark mode css -->
+		<style>
+			body.dark-mode {
+				background-color: #222;
+				color: #222;
+			}
+
+			.navbar-dark .navbar-brand {
+				color: #fff;
+			}
+
+			.carousel.carousel-dark .carousel-control-prev-icon,
+			.carousel.carousel-dark .carousel-control-next-icon {
+				filter: invert(1);
+			}
+
+			.carousel.carousel-dark .carousel-control-prev,
+			.carousel.carousel-dark .carousel-control-next {
+				color: #fff;
+			}
+
+			.carousel.carousel-dark .carousel-control-prev:hover,
+			.carousel.carousel-dark .carousel-control-next:hover,
+			.carousel.carousel-dark .carousel-control-prev:focus,
+			.carousel.carousel-dark .carousel-control-next:focus {
+				color: #ccc;
+			}
+
+			.btn-outline-dark {
+				color: #0a0a0a;
+				border-color: #150f0f;
+			}
+
+			.btn-outline-dark:hover {
+				background-color: #762323;
+				color: #222;
+			}
+
+			.btn-outline-dark:focus,
+			.btn-outline-dark.focus {
+				box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0);
+			}
+
+			.toast-dark {
+				background-color: #333;
+				color: #fff;
+			}
+
+			.toast-dark .toast-header {
+				background-color: #222;
+				color: #fff;
+			}
+
+			.toast-dark .btn-close {
+				filter: invert(1);
+			}
+
+			.light-mode .navbar-nav a:hover {
+				color: white;
+			}
+		</style>
+
+		<!-- dark mode button -->
+		<button class="btn btn-outline-dark" id="dark-mode-toggle">
+			Dark mode
+		</button>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<!-- making it collapse upon a specific size -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a href="#" class="nav-link active"
+								><i class="bi bi-1-circle"></i
+							></a>
+						</li>
+						<!-- link from a square icon -->
+						<li class="nav-item">
+							<a href="#" class="nav-link"><i class="bi bi-2-square"></i></a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link"
+								><i class="bi bi-3-circle-fill"></i
+							></a>
+						</li>
+						<!-- the button that will make the Toast pop up -->
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="liveToastBtn"
+								><i class="bi bi-4-square-fill"></i
+							></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Carousel -->
+		<!-- making the size fixed, adding some padding, making it a carousel, setting the theme, and animation(slide) -->
+		<div
+			id="carouselExampleControls"
+			class="container p-5 carousel carousel-dark slide"
+			data-bs-ride="carousel"
+			style="width: 300px"
+		>
+			<!-- the inner is the "content" of the carousel
+        these are all images and the first one is active because this is the one i would like to show when upon opening the page
+    
+    d-block w-100 is essential for the carousel to work in this case so the images stack on top of each other and therefore is visible-->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img
+						src="https://th.bing.com/th/id/R.0d4abf71afda31867f27ea43bc6153e8?rik=CwvbnO1vm9f59A&riu=http%3a%2f%2f1.bp.blogspot.com%2f-M_fMq38u4lI%2fUSo4hgnRqlI%2fAAAAAAAAYkc%2f-LS5DEfj5iY%2fs640%2fPinterest.jpg&ehk=84sGn4Jngm%2b%2fve5LjAcGmdcrnosOm0%2f%2bm83ZR2uIgSw%3d&risl=&pid=ImgRaw&r=0"
+						class="d-block w-100"
+						alt="image2"
+					/>
+				</div>
+				<div class="carousel-item">
+					<img
+						src="https://th.bing.com/th/id/R.eed99be06e7bf1c50558eba5c458fbf6?rik=15OPYZng3K3cMw&riu=http%3a%2f%2f3.bp.blogspot.com%2f-LgQh4fz6yEI%2fT0VtkRgqNbI%2fAAAAAAAAH0s%2ffF4xYyEAhZA%2fs1600%2fDSC00036.JPG&ehk=v3F4wGMXRh6Nyw7TPjpCHqRLNcPo1mD9meO9%2bwuuJow%3d&risl=&pid=ImgRaw&r=0"
+						class="d-block w-100"
+						alt="image1"
+					/>
+				</div>
+				<div class="carousel-item">
+					<img
+						src="https://th.bing.com/th/id/OIP.MBlOJPg-beF5E6q2yR5k9gHaLH?pid=ImgDet&rs=1"
+						class="d-block w-100"
+						alt="image3"
+					/>
+				</div>
+			</div>
+			<!-- these are the carousel next and prev buttons that are on the side of the images in the carousel 
+            the target is targeting the id of the carousel
+            data bs slide is to refer to what side we are wanting to slide to-->
+			<button
+				class="carousel-control-prev"
+				type="button"
+				data-bs-target="#carouselExampleControls"
+				data-bs-slide="prev"
+			>
+				<!-- adding the icons for prev -->
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button
+				class="carousel-control-next"
+				type="button"
+				data-bs-target="#carouselExampleControls"
+				data-bs-slide="next"
+			>
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+
+		<!-- Buttons
+        
+        these are just buttons that do nothing, in bs style, we are making a div initially to center it all
+        these are a group of buttons so we can chain them and they will be next to each other-->
+		<div class="text-center">
+			<div
+				class="btn-group"
+				role="group"
+				aria-label="Basic mixed styles example"
+			>
+				<button type="button" class="btn btn-danger">Left</button>
+				<button type="button" class="btn btn-warning">Middle</button>
+				<button type="button" class="btn btn-success">Right</button>
+			</div>
+		</div>
+		<!-- this is the live toast, we are linking this to the jQuery using the id, we are fixing it to the right hand bottom corner
+        setting the z index so it will display on top of everything -->
+		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+			<div
+				id="liveToast"
+				class="toast hide"
+				role="alert"
+				aria-live="assertive"
+				aria-atomic="true"
+			>
+				<!-- the content of the toast, the header is strong so it will be bold in font
+                small is the "when" it was updated, and btn close is the x to close the toast
+                when its clicked it should hide this is the data-bs-dismiss
+                the aria label is for screen reader if you cannot see-->
+				<div class="toast-header">
+					<strong class="me-auto">Bootstrap</strong>
+					<small>11 mins ago</small>
+					<button
+						type="button"
+						class="btn-close"
+						data-bs-dismiss="toast"
+						aria-label="Close"
+					></button>
+				</div>
+				<!-- The meat of the toast message "the paragraph of it" -->
+				<div class="toast-body">Hello, world! This is a toast message.</div>
+			</div>
+		</div>
+
+		<script src="jquery-3.6.0.js"></script>
+		<script src="bootstrap.bundle.min.js"></script>
+
+		<script>
+			// this is the jQuery that will activate the toast btn
+			$(document).ready(function () {
+				$('#liveToastBtn').click(function () {
+					$('#liveToast').toast('show');
+				});
+			});
+		</script>
+		<!-- Dark Mode js via DOM -->
+		<script>
+			const toggleDarkMode = () => {
+				document.body.classList.toggle('dark-mode');
+				const darkModeToggle = document.getElementById('dark-mode-toggle');
+				if (document.body.classList.contains('dark-mode')) {
+					darkModeToggle.textContent = 'Light mode';
+				} else {
+					darkModeToggle.textContent = 'Dark mode';
+				}
+			};
+
+			document
+				.getElementById('dark-mode-toggle')
+				.addEventListener('click', toggleDarkMode);
+		</script>
+	</body>
+</html>

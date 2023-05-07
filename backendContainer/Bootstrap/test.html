@@ -1,12 +1,80 @@
-<div class="btn-group" data-bs-toggle="buttons">
-	<label class="btn btn-primary active">
-		<input type="radio" class="me-2" name="" id="" autocomplete="off" checked />
-		Choice
-	</label>
-	<label class="btn btn-primary">
-		<input type="radio" name="" id="" autocomplete="off" /> Choice
-	</label>
-	<label class="btn btn-primary">
-		<input type="radio" name="" id="" autocomplete="off" /> Choice
-	</label>
-</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Custom Facebook Like Button Example</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+		/>
+		<style>
+			.like-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #ffffff;
+				border: none;
+				border-radius: 4px;
+				padding: 12px 24px;
+				font-size: 24px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.like-btn:hover {
+				background-color: #f2f2f2;
+			}
+			.like-btn:focus {
+				outline: none;
+			}
+			.like-btn.active {
+				background-color: #3b5998;
+				color: white;
+			}
+			.like-icon {
+				width: 16px;
+				height: 16px;
+				margin-right: 5px;
+				fill: #9e0707;
+				transition: fill 0.2s ease-in-out;
+			}
+			.like-btn.active .like-icon {
+				fill: rgb(9, 56, 197);
+			}
+			.like-counter {
+				margin-left: 10px;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container py-5 text-center">
+			<button class="like-btn" data-bs-toggle="button" aria-pressed="false">
+				<svg class="like-icon" viewBox="0 0 24 24">
+					<path
+						d="M12 21.35l-1.79-1.61C4.85 14.81 0 10.87 0 6.75 0 3.58 2.69 1 6 1c2.55 0 4.84 1.34 6 3.35C13.16 2.34 15.45 1 18 1c3.31 0 6 2.58 6 5.75 0 4.12-4.85 8.06-10.21 12.99L12 21.35z"
+					></path>
+				</svg>
+				Like
+				<span class="like-counter">0</span>
+			</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			var likeBtn = document.querySelector('.like-btn');
+			var likeCounter = document.querySelector('.like-counter');
+			var count = 0;
+
+			likeBtn.addEventListener('click', function () {
+				if (likeBtn.classList.contains('active')) {
+					likeBtn.classList.toggle('active');
+					count = Math.max(count + 1, 0);
+				} else {
+					likeBtn.classList.toggle('active');
+					count++;
+				}
+				likeCounter.textContent = count;
+			});
+		</script>
+	</body>
+</html>
