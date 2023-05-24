@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Introduction to objects</title>
+	</head>
+	<body>
+		<script>
+			const myObject = {
+				name: 'value',
+				numberName: 20,
+				smallObject: {
+					smallName1: 30,
+					smallName2: 30,
+				},
+				myFunc: function (status) {
+					this.myStatus = status;
+				},
+			};
+			console.log(myObject);
+			// so im declaring the object by first declaring the variable name and adding values to it
+			const matchScore = {
+				homeScore: 0,
+				awayScore: 0,
+				// here im adding a method, this method is a function that increments the score of either team
+				homeGoal: function () {
+					this.homeScore++;
+				},
+				awayGoal: function () {
+					this.awayScore++;
+				},
+				// setting some variables describing the team
+				teamPlayersHome: 25,
+				teamPlayersAway: 25,
+				// setting some variables describing the team
+				teamNames: {
+					awayTeam: 'Rangers',
+					homeTeam: 'Kickers',
+				},
+
+				// setting some info about the venue
+				venue: {
+					venuePlace: 'Shitkickersville, TX',
+					stadium: 'Kickers Home Stadium',
+					spectatorSeats: 35000,
+				},
+			};
+			// this is how i would add goals using this method
+			matchScore.homeGoal();
+			matchScore.homeGoal();
+			matchScore.awayGoal();
+			matchScore.awayGoal();
+			matchScore.awayGoal();
+			matchScore.awayGoal();
+			console.log(matchScore);
+		</script>
+	</body>
+</html>

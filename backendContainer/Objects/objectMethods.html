@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>objectMethods</title>
+	</head>
+	<body>
+		<!-- this is making the buttons decrement and increment by dot notating  -->
+		<button onclick="numberObject.increment()">Increment</button>
+		<button onclick="numberObject.decrement()">Decrement</button>
+		<!-- pretty similar as before, we are making 2 methods that will increment and decrement the number in value -->
+		<script>
+			const numberObject = {
+				value: 0,
+
+				increment: function () {
+					this.value++;
+					console.log(this.value);
+				},
+				decrement: function () {
+					this.value--;
+					console.log(this.value);
+				},
+			};
+		</script>
+	</body>
+</html>

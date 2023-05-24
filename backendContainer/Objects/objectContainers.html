@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// the const makes the object mutable, however we can still modify its properties
+			const myObject = {
+				name: 'value',
+				numberName: 20,
+				smallObject: {
+					smallName1: 30,
+					smallName2: 30,
+				},
+				myFunc: function (status) {
+					this.myStatus = status;
+				},
+			};
+			// by linking the object to a new one and changing its values we are able to modify the variable values in it
+			const myObject2 = myObject;
+			myObject2.name = 'even newer name';
+			myObject2.smallName1 = 123;
+			myObject2.number2name = 12312312312313;
+			// however we could still just manipulate the original if we wanted
+			myObject.smallName2 = 4242;
+			myObject.newThing = 666;
+			myObject.name = 'storm';
+			console.log(myObject);
+		</script>
+	</body>
+</html>

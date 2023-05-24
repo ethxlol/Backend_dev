@@ -1,0 +1,38 @@
+although i like "drilling"(dot notation) for accessing properties this is not the only way to access them.
+
+Drilling(dot notation):  myObject.smallObject.smallname1
+Drilling(dot notation) deleting:  delete myObject.smallObject.smallname1;
+Drilling appending: myObject.somethingNew = 'this is a new string, if i removed the quotations and added a int it would be an int'
+Drilling changing some value: myObject.somethingNew = 20 (changed the string into a number(int))
+
+We can use bracket notation to access object properties. It has the following syntax:
+object[“property”] – for example: myObject[“name”] from the previous example
+or object[expression] – for example:
+We cannot access something like a var with drilling, here we have to use bracket notations to be able to access the var
+
+function getPropertyName() {
+      return "name";
+  }
+  var x = getPropertyName();
+  myObject[x];
+
+  We can also use bracket notation to access the nested objects. For example: outerObject[“innerObject”][“propertyName”].
+
+  we aren’t obliged to stick to one notation. We can mix them. Instead of outerObject.innerObject.propertyName or outerObject[“innerObject”][“propertyName”], we can access this property name using:
+outerObject.innerObject[“propertyName”] or outerObject[“innerObject”].propertyName accessors.
+
+To add a new property to an existing object, all we need to do is give a value to the property name we want to create, for example:
+const myObject = {
+      name: "value",
+      numberName: 20,
+      smallObject: {
+          smallName1: 30,
+          smallName2: 30,
+      }
+  };
+  myObject.numberName2 = 30;
+
+
+
+
+

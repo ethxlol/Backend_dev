@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>taskone</title>
+	</head>
+	<body>
+		<!-- buttons to activate the addition and multiplication methods we made -->
+		<button onclick="taskOne.sum()">sum</button>
+		<button onclick="taskOne.multiply()">multiplied</button>
+
+		<br />
+
+		<button onclick="modify()">Modify</button>
+		<script>
+			// declaring an object that will add two numbers together and multiply them
+			const taskOne = {
+				numberOne: 2,
+				numberTwo: 5,
+
+				sum: function () {
+					console.log(this.numberOne + this.numberTwo);
+				},
+
+				multiply: function () {
+					console.log(this.numberOne * this.numberTwo);
+				},
+			};
+			// prompting the user to make a change to one of the number values we made that we can multiply or add
+			function modify() {
+				// using brackets here because we cannot dot notate into a variable
+				const name = prompt('Enter a value you would like to change: ');
+				// we are checking here if the variables exist in the code, so if the user wrote something other than one of the values
+				// the else alert will pop up so !=null is like saying not something that dont exist in the object so therefore exists
+				if (taskOne[name] != null) {
+					const newValue = parseInt(prompt('Please give provide new value: '));
+					// this is like saying newValue is'nt not a number (so it is a number), and then the name (the number) gets a new value
+					if (!isNaN(newValue)) {
+						taskOne[name] = newValue;
+					}
+				} else {
+					alert('this is not a valid variable in the object');
+				}
+			}
+		</script>
+	</body>
+</html>

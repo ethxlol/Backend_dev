@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- this is how we can dynamically add something to these buttons
+    we are making methods that will add something. In this case just the number 10
+    and likewise to remove it -->
+		<button onclick="addProperty()">Add</button>
+		<button onclick="removeProperty()">Remove</button>
+
+		<script>
+			const addRemove = {};
+			function addProperty() {
+				addRemove.number = 10;
+				console.log(addRemove);
+			}
+			function removeProperty() {
+				delete addRemove.number;
+				console.log(addRemove);
+			}
+		</script>
+	</body>
+</html>
