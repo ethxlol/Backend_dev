@@ -1,5 +1,5 @@
 // This is my age in human years
-const myAge = 32;
+let myAge = 32;
 
 // This is my early age
 let earlyYears = 2;
@@ -28,3 +28,25 @@ let myName = 'Emil'.toLowerCase();
 console.log(
 	`My name is ${myName}. I am ${myAge} years old in human years which is ${myAgeInDogYears} years old in dog years.`
 );
+
+// FP approach to ⬆️
+
+// If human years are less than or equal to 2 it gets multiplied by 10.5
+// If false (i.e greater than) 21(the earlyYears of a dog) - 2(accounted for in earlyYears) * 4
+const calculateDogYears = (humanYears) => {
+	const earlyYears =
+		humanYears <= 2 ? humanYears * 10.5 : 21 + (humanYears - 2) * 4;
+	return earlyYears;
+};
+
+const formatSentence = (name, humanAge, dogAge) => {
+	return `My name is ${name}. I am ${humanAge} years old in human years which is ${dogAge} years old in dog years!`;
+};
+
+const functionalMyAgeInDogYears = (name, age) => {
+	const dogYears = calculateDogYears(age);
+	return formatSentence(name, age, dogYears);
+};
+
+console.log(functionalMyAgeInDogYears('Emil', 32));
+console.log(functionalMyAgeInDogYears('Glenn', 30));
