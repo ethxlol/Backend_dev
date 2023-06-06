@@ -1,16 +1,7 @@
 import Backpack from './Backpack.js';
 // we are basically adding some new properties to the backpack class
 // so now we are adding something to the params that we have set in the class
-const everydayPack = new Backpack(
-	'Everyday Backpack',
-	30,
-	'grey',
-	15,
-	29,
-	26,
-	true,
-	"Arc'teryx"
-);
+const everydayPack = new Backpack('Everyday Backpack', 30, 'grey', 15, 29, 26, true, "Arc'teryx");
 
 console.log('The everydayPack object:', everydayPack);
 console.log('The pocketNum value:', everydayPack.pocketNum);

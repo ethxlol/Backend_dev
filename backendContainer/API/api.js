@@ -32,5 +32,9 @@ $.ajax({
 	},
 	success: function (response) {
 		console.log(response);
+		const serialized = JSON.stringify(response);
+		console.log(serialized);
+		const deserialized = JSON.parse(response);
+		console.log(deserialized);
 	},
 });

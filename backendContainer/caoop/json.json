@@ -1,0 +1,19 @@
+
+{
+car_json = '''
+{
+    "wheels": 4,
+    "doors": 4,
+    "color": "white"
+}
+''',
+
+
+truck_json = '''
+{
+    "wheels": 18,
+    "doors": 2,
+    "color": "red"
+}
+'''
+}

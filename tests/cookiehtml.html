@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap"
+			rel="stylesheet" />
+		<title>Cookie Jar</title>
+		<style>
+			h1 {
+				font-family: 'Raleway', sans-serif;
+				text-shadow: 2px 2px 4px;
+				display: flex;
+				justify-content: center;
+				margin-bottom: 20px;
+			}
+
+			.cookieContainer {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 20px;
+			}
+
+			#cookieButtons {
+				padding-top: 10px;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				border-width: fit-content;
+				align-items: center;
+			}
+			.cookieButton {
+				display: inline-block;
+				background-color: gray;
+				cursor: pointer;
+				padding: 5px 10px;
+				border: none;
+				white-space: nowrap;
+			}
+		</style>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<h1>Cookie Jar</h1>
+		<div class="cookieContainer">
+			<button id="addCookiesButton" class="btn btn-secondary btn-lg">Add Cookies</button>
+		</div>
+
+		<div id="cookieButtons"></div>
+
+		<script src="cookie2.js"></script>
+	</body>
+</html>

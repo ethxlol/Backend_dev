@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Testing for an empty object</title>
+	</head>
+	<body>
+		<script>
+			// just making some random values
+			const emptyObject = {};
+			const nonEmptyObject = { name: 'value' };
+			const stringContent = 'string';
+			const numberContent = 123;
+			const arrayContent = ['data1', 'data2', 'data3'];
+			const dateContent = new Date();
+
+			// so this will test if and object is empty or not, this is good for modern browser
+			const testData = (data) => {
+				if (Object.keys(data).length === 0 && data.constructor === Object) {
+					console.log('Empty Object:');
+					return data;
+				} else {
+					console.log('Not an empty object:');
+					return data;
+				}
+			};
+
+			// However, if we want something with legacy support, such as old internett explorer and the first versions of chrome and MFF
+			// we need to make a hasOwnProperty
+			const testDataLegacy = (dataLegacy) => {
+				for (prop in dataLegacy) {
+					if (hasOwnProperty === true) {
+						console.log('Not an empty object:');
+						return dataLegacy;
+					}
+				}
+				if (JSON.stringify(dataLegacy) === JSON.stringify({})) {
+					console.log('Empty object:');
+					return dataLegacy;
+				} else {
+					console.log('Not an empty object:');
+					return dataLegacy;
+				}
+			};
+		</script>
+	</body>
+</html>
