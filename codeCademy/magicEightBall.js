@@ -8,9 +8,9 @@ userName ? console.log(`Hello, ${userName}!`) : console.log('Hello!');
 const userQuestion = 'Do you like farts ?';
 if (userQuestion == 'Do you like farts ?') {
 	console.log(
-		`Salutaitations, ${userName}, the fragnant bliss that is a ${
+		`Salutations, ${userName}, the fragrant bliss that is a ${
 			userQuestion.split(' ')[3]
-		} is wonderfull to me! `
+		} is wonderful to me! `
 	);
 } else {
 	console.log('I dont!');
