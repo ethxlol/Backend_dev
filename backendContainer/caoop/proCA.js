@@ -17,7 +17,7 @@ class Vehicle {
 class Car extends Vehicle {
 	constructor(vehicleSpec) {
 		super(vehicleSpec);
-		this.topSpeed = null;
+		this.topSpeed = vehicleSpec.topSpeed;
 	}
 
 	// Getter for topSpeed
@@ -29,16 +29,16 @@ class Car extends Vehicle {
 
 	// Setter for topSpeed
 
-	setTopSpeed(speed) {
-		this.topSpeed = speed;
-	}
+	// setTopSpeed(speed) {
+	// 	this.topSpeed = speed;
+	// }
 }
 
 // Child 2 (Truck)
 class Truck extends Vehicle {
 	constructor(vehicleSpec) {
 		super(vehicleSpec);
-		this.maxLoadWeight = null;
+		this.maxLoadWeight = vehicleSpec.maxLoadWeight;
 	}
 
 	// Getter for maxLoadWeight
@@ -52,9 +52,9 @@ class Truck extends Vehicle {
 
 	// Setter for maxLoadWeight
 
-	setMaxLoadWeight(weight) {
-		this.maxLoadWeight = weight;
-	}
+	// 	setMaxLoadWeight(weight) {
+	// 		this.maxLoadWeight = weight;
+	// 	}
 }
 
 // Vehicle Factory will create Vehicles of different types
@@ -80,13 +80,15 @@ var json_car = '{"wheels": 4, "doors": 4, "color": "white"}';
 // Convert JSON strings to JS objects
 
 const js_car = JSON.parse(json_car);
+// Add topSpeed to the JS Object
+js_car.topSpeed = 180;
 
 // Create CarFactory and Car
 const carFactory = new VehicleFactory();
 const newCar = carFactory.create('car', js_car);
 
 console.log(newCar.getDescription()); // Call parent's description method
-newCar.setTopSpeed(180); // Set the value of the child's unique method
+// newTruck.setTopSpeed(180); // Set the value of the child's unique method using setter
 newCar.getTopSpeed(); // Call child's unique method
 
 // -----------Truck Implementation--------------
@@ -98,11 +100,13 @@ var json_truck = '{"wheels": 18, "doors": 2, "color": "red"}';
 // Convert JSON strings to JS objects
 
 const js_truck = JSON.parse(json_truck);
+// Add maxLoadWeight
+js_truck.maxLoadWeight = 1000;
 
 // Create TruckFactory and Truck
 const truckFactory = new VehicleFactory();
 const newTruck = truckFactory.create('truck', js_truck);
 
 console.log(newTruck.getDescription()); // Call parent's description method
-newTruck.setMaxLoadWeight(1000); // Set the value of the child's unique method
+// newTruck.setMaxLoadWeight(1000); // Set the value of the child's unique method using setter
 newTruck.getMaxLoadWeight(); // Call child's unique method

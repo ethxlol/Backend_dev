@@ -25,10 +25,10 @@ let myName = 'Emil'.toLowerCase();
 // console.log(myName)
 
 // Using Template Literal syntax i wrote a sentence about my age in dog and human years with the variables.
-console.log(
-	`My name is ${myName}. I am ${myAge} years old in human years which is ${myAgeInDogYears} years old in dog years.`
-);
-
+// console.log(
+// 	`My name is ${myName}. I am ${myAge} years old in human years which is ${myAgeInDogYears} years old in dog years.`
+// );
+// ------------------------------------------------------------------------------------------------------------------
 // FP approach to ⬆️
 
 // If human years are less than or equal to 2 it gets multiplied by 10.5
@@ -48,5 +48,6 @@ const functionalMyAgeInDogYears = (name, age) => {
 	return formatSentence(name, age, dogYears);
 };
 
-console.log(functionalMyAgeInDogYears('Emil', 32));
-console.log(functionalMyAgeInDogYears('Glenn', 30));
+// console.log(functionalMyAgeInDogYears('Emil', 32));
+// console.log(functionalMyAgeInDogYears('Glenn', 30));
+console.log(functionalMyAgeInDogYears('Renate', 4));
