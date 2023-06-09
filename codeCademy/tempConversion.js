@@ -1,5 +1,5 @@
 // This is a constant variable that shows the temperature in kelvin
-const kelvin = 293;
+const kelvin = 273;
 
 // Converting K to C and logging it to the console.
 const celsius = kelvin - 273;

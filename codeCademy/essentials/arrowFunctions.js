@@ -19,3 +19,6 @@ const plantNeedsWaterTernery = (day) => {
 };
 
 console.log(plantNeedsWaterTernery('Wednesday'));
+
+// concise version
+const plantNeedsWaterConcise = (day) => (day === 'Wednesday' ? true : false);
