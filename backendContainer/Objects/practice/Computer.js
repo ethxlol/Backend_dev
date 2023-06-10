@@ -54,7 +54,8 @@ class Computer {
 		let today = new Date();
 		let built = new Date(this.dateAcquired);
 		let elapsed =
-			(today.getFullYear() - built.getFullYear()) * 12 + (today.getMonth() - built.getMonth());
+			(today.getFullYear() - built.getFullYear()) * 12 +
+			(today.getMonth() - built.getMonth());
 		let monthsSinceBuilt = elapsed;
 		return monthsSinceBuilt;
 	}
