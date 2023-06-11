@@ -64,3 +64,50 @@ while (currentCard !== 'spade') {
 	currentCard = cards[Math.floor(Math.random() * 4)]; // we can think of the random numbers as a place holder for random index in this case
 	console.log(currentCard); // printing it to the console.
 }
+
+// Working with do-while loops
+
+/* Variables used in the do-while loop
+cupsOfSugarNeeded represents the target number of cups of sugar needed
+cupsAdded keeps track of the current number of cups added */
+const cupsOfSugarNeeded = 7;
+let cupsAdded = 0;
+
+/* The do-while loop ensures that the code block is executed at least once,
+regardless of the initial value of cupsOfSugarNeeded
+
+Inside the loop, cupsAdded is incremented by 1 each time
+The loop continues until cupsAdded is no longer less than cupsOfSugarNeeded */
+
+do {
+	cupsAdded++;
+	console.log(`${cupsAdded} Cup(s) of sugar was added`);
+} while (cupsAdded < cupsOfSugarNeeded);
+
+// Using the break keyword
+// So we are iterating through the array
+const rapperArray = ["Lil' Kim", 'Jay-Z', 'Notorious B.I.G.', 'Tupac'];
+for (let i = 0; i < rapperArray.length; i++) {
+	console.log(rapperArray[i]); // Logging the for loop iterations... until⬇️
+	// When the 2nth index is met the for loop will break because of the break at the end of this
+	// And if you don't know, now you know...
+	if (i >= 2) {
+		console.log(
+			`this is how the break keyword works... And if you don't know, now you know.`
+		);
+		break;
+	}
+}
+
+// BONUS: another fun way to demonstrate the break keyword
+
+// Standard for loop
+for (let i = 0; i < 99; i++) {
+	if (i > 2) {
+		break;
+	}
+	// The word banana would be iterated 99 times if it were'nt for the if statement that breaks if index exceeds 2
+	console.log('Banana.');
+}
+
+console.log('Orange you glad I broke out the loop!');
