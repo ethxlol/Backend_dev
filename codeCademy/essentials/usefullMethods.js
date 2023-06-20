@@ -23,3 +23,24 @@ console.log(temperaturesInFahrenheit); // Shows the array and the number of elem
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const evenNumbers = numbers.filter((number) => number % 2 === 0);
 console.log('The even numbers are:', evenNumbers);
+
+const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+
+// Call .filter() on randomNumbers below
+const smallNumbers = randomNumbers.filter((num) => {
+	return num < 250;
+});
+
+const favoriteWords = [
+	'nostalgia',
+	'hyperbole',
+	'fervent',
+	'esoteric',
+	'serene',
+];
+
+// Call .filter() on favoriteWords below
+
+const longFavoriteWords = favoriteWords.filter((word) => {
+	return word.length > 7;
+});

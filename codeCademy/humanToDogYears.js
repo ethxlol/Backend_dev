@@ -51,3 +51,4 @@ const functionalMyAgeInDogYears = (name, age) => {
 // console.log(functionalMyAgeInDogYears('Emil', 32));
 // console.log(functionalMyAgeInDogYears('Glenn', 30));
 console.log(functionalMyAgeInDogYears('Renate', 4));
+console.log(functionalMyAgeInDogYears('baby', 14));

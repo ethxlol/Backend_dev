@@ -111,3 +111,7 @@ for (let i = 0; i < 99; i++) {
 }
 
 console.log('Orange you glad I broke out the loop!');
+
+for (let i = 10; i > -1; i--) {
+	console.log(i);
+}

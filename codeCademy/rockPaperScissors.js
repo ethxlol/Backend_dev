@@ -85,7 +85,7 @@ const determineWinner = (userChoice, computerChoice) => {
 // console.log(determineWinner("paper", "Scissors"));
 
 const playGame = () => {
-	const userChoice = getUserChoice('cock'); // This is a way you could do it also, not as dynamic though
+	const userChoice = getUserChoice('rock'); // This is a way you could do it also, not as dynamic though
 	const computerChoice = getComputerChoice();
 	console.log(`Your hand shows ${userChoice}`);
 	console.log(`Computer hand shows ${computerChoice}`);
