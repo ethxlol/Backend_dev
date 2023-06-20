@@ -25,3 +25,7 @@ for (let i = 0; i < input.length; i++) {
 console.log(resultArray); // Output the resultArray containing the processed characters
 let resultString = resultArray.join('').toUpperCase(); // Join the characters in the resultArray making it a string and converting to uppercase
 console.log(resultString); // Output the resultString
+
+for (let i = 0; i < 20; i++) {
+	console.log(i);
+}
