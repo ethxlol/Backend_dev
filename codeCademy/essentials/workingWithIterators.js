@@ -10,6 +10,7 @@ const animals = [
 ];
 
 // Using the findIndex method to search for the index of the element "elephant" in the animals array.
+// This is how we can put functions inside of a method to do something.
 const foundAnimal = animals.findIndex((animal) => {
 	return animal === 'elephant';
 });
