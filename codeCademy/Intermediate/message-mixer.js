@@ -1,6 +1,6 @@
 // Import the functions from encryptors.js here.
 const encryptors = require('./encryptors');
-const { caesarCipher, symbolCipher, reverseCipher } = encryptors;
+const { caesarCipher, symbolCipher, reverseCipher, binaryCipher } = encryptors;
 // Encryption Functions
 /////////////////////////////////////////////
 
@@ -30,6 +30,8 @@ function getEncryptionMethod() {
 			process.exit();
 		}
 		encryptionMethod = (str) => caesarCipher(str, amount);
+	} else if (encryptionType === 'binary') {
+		encryptionMethod = binaryCipher;
 	} else {
 		process.stdout.write(`Try again with a valid encryption type. \n`);
 		process.exit();

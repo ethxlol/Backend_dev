@@ -1,4 +1,4 @@
-// Declare and export the functions here.
+// CaesarCipher will take the amount passed in the call and + it to a char, so if caesar 1 emil it will be fnjm (because e+1 = f and m+1=n and i+1=j and l+1=m)
 const caesarCipher = (str, amount = 0) => {
 	if (amount < 0) {
 		return caesarCipher(str, amount + 26);
@@ -18,6 +18,7 @@ const caesarCipher = (str, amount = 0) => {
 	}
 	return output;
 };
+// symbolCipher is letters hardcoded to match a symbol
 const symbolCipher = (str) => {
 	const symbols = {
 		i: '!',
@@ -48,7 +49,7 @@ const symbolCipher = (str) => {
 	}
 	return output;
 };
-
+// ReverseCipher will take the passed elements and reverse it so emil = lime
 const reverseCipher = (sentence) => {
 	let words = sentence.split(' ');
 	for (let i = 0; i < words.length; i++) {
@@ -57,8 +58,22 @@ const reverseCipher = (sentence) => {
 	return words.join(' ');
 };
 
+// BinaryCipher takes a charCode and converts it into a binary representation of the charCode based on ASCII
+const binaryCipher = (str) => {
+	let binaryString = '';
+
+	for (let i = 0; i < str.length; i++) {
+		const charCode = str.charCodeAt(i);
+		const binaryCode = charCode.toString(2); // Convert character code to binary string
+		binaryString += binaryCode + ' '; // Space separator between binary codes
+	}
+
+	return binaryString.trim(); // Remove trailing space
+};
+
 module.exports = {
 	caesarCipher,
 	symbolCipher,
 	reverseCipher,
+	binaryCipher,
 };
