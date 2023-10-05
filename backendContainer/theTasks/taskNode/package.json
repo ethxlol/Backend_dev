@@ -1,0 +1,11 @@
+{
+  "name": "tasktwo",
+  "version": "1.0.0",
+  "description": "task2",
+  "main": "task2.js",
+  "scripts": {
+    "test": "tester"
+  },
+  "author": "",
+  "license": "ISC"
+}

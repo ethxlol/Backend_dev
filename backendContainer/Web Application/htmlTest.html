@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+
+<!-- NavBar -->
+
+<nav class="navbar navbar-expand-lg navbar">
+<div id="frame">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a id="navDashboard" class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarInventory" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Inventory
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Search</a>
+          <a class="dropdown-item" href="#">Add</a>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </li>
+			<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarOrders" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Orders
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Search</a>
+          <a class="dropdown-item" href="#">Add</a>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </li>
+  </div>
+</nav>
+
+		
+<!-- The frame around the tables and forms -->
+		<div class="frame-container">
+	
+
+		<!-- Toast User Delay -->
+		<div id="staffMemberIsLate" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				 <strong class="mr-auto" style="color: red;">Staff Delay Alert!</strong>
+				 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				 </button>
+			</div>
+			<div class="toast-body">
+				 <!-- The details will be filled in by the JS code -->
+			</div>
+		</div>
+
+		<!-- First Table -->
+		<div class="container mt-5">
+		<h2> <img style="width: 150px; height: 150px;" src="assets/Company logo.png" alt="logo">Reception Management Dashboard Staff</h2>
+		<table id="userTable" class="table table-bordered mt-3">
+			<thead>
+				<tr>
+					<th>Picture</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email</th>
+					<th>Status</th>
+					<th>Out Time</th>
+					<th>Duration Out</th>
+					<th>Expected Return</th>
+				</tr>
+			</thead>
+			<!-- From JS ⬇️ -->
+			<tbody id="usersTable"></tbody>
+		</table>
+
+		<!-- Duration Modal -->
+<div class="modal fade" id="durationModal" tabindex="-1" role="dialog" aria-labelledby="durationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="durationModalLabel">Out Duration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="durationInput">How long will you be out (in minutes)?</label>
+        <input type="number" class="form-control" id="durationInput" placeholder="Enter duration">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="durationConfirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		<!--Inn / Out Buttons -->
+		<div class="row">
+			<div class="col text-left">
+				<button id="outButton" class="btn btn-danger fixed-size-btn">
+					Out
+				</button>
+			</div>
+			<div class="col text-right">
+				<button id="inButton" class="btn btn-success fixed-size-btn">In</button>
+			</div>
+		</div>
+
+		<!-- Delivery Schedule -->
+
+<!-- Telephone Number Warning Modal -->
+<div class="modal fade" id="telephoneNumberWarningModal" tabindex="-1" role="dialog" aria-labelledby="telephoneNumberWarningModalLabel" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="telephoneNumberWarningModalLabel">Telephone Number Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Telephone number must have at least 7 digits.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+		<h2 class="mt-5">Delivery Schedule</h2>
+		<form id="scheduleForm">
+			<table id="scheduleFormTable" class="table table-bordered mt-3">
+				<tbody>
+					<tr>
+						<thead>
+							<tr>
+								<th>Vehicle</th>
+								<th>Name</th>
+								<th>Surname</th>
+								<th>Telephone</th>
+								<th>Address</th>
+								<th>Return Time</th>
+							</tr>
+						</thead>
+						<td>
+							<div class="dropdown">
+								
+								<button
+									class="btn btn-primary dropdown-toggle d-block mt-1"
+									type="button"
+									id="vehicleDropdown"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false">
+									<i class="fas fa-car"></i> Car
+								</button>
+								<div class="dropdown-menu" aria-labelledby="vehicleDropdown">
+									<a class="dropdown-item" href="#" data-value="car">
+										<i class="fas fa-car"></i> Car
+									</a>
+									<a class="dropdown-item" href="#" data-value="motorcycle">
+										<i class="fas fa-motorcycle"></i> Motorcycle
+									</a>
+								</div>
+							</div>
+						</td>
+						<td>
+							<input type="text" class="form-control" id="inputName" required />
+						</td>
+						<td>
+							<input
+								type="text"
+								class="form-control"
+								id="inputSurname"
+								required />
+						</td>
+						<td>
+							<input
+									type="number"
+									class="form-control"
+									id="inputTelephone"
+									pattern="^\d{3}[-.\s]?\d{7}$"
+									title="Please enter a valid phone number format like 123-1234567 or 123 1234567 or 123.1234567"
+									required />
+					</td>
+						<td>
+							<input
+								type="text"
+								class="form-control"
+								id="inputAddress"
+								required />
+						</td>
+						<td>
+							<input
+								type="time"
+								class="form-control"
+								id="inputReturnTime"
+								required />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col text-right"><button type="submit" id="addButton" class="btn btn-primary fixed-size-btn">Add</button></div>
+			</div>
+		</form>
+
+		<!-- Delivery Board -->
+			<h2>Delivery Board</h2>
+			<table id="deliveryBoard" class="table table-bordered mt-3">
+				<thead>
+				<tr>
+					<th>Vehicle Type</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Telephone</th>
+					<th>Address</th>
+					<th>Return Time</th>
+				</tr>
+			</thead>
+			<tbody id="deliveryBoardTable"></tbody>
+		</table>
+		<div class="row">
+		<div class="col text-right"><button type="reset" class="btn btn-danger fixed-size-btn" id="clearButton">Clear</button></div>
+	</div>
+
+	<!-- Clock -->
+	<div id="clock" style="position: relative; right: -19rem; padding-top: 1rem; "></div>
+
+</div>
+
+	<!-- Toast Delivery Board -->
+	<div id="deliveryDriverIsLate" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="toast-header">
+			 <strong class="mr-auto" style="color: red;">Delivery Driver Delay Alert!</strong>
+			 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+			 </button>
+		</div>
+		<div class="toast-body">
+			 <!-- The details will be filled in by the JS code -->
+		</div>
+ </div>
+</div>
+	
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+		<script src="scriptTest.js"></script>
+
+	
+	</body>
+</html>

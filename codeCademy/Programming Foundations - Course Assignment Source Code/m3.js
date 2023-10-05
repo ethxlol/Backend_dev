@@ -30,36 +30,59 @@ function addTwoNumbers() {
 }
 
 function extractMiddleString() {
-	const text = prompt('Provide string containing at least 5 characters.');
+	const text = prompt('Provide a string containing at least 5 characters.');
+	const middleIndex = Math.floor(text.length / 2);
 	if (text.length < 5) {
-		alert('Wrong data');
-		return;
+		alert('need to be at least 5 characters long');
+	} else if (text.length % 2 === 1) {
+		oddSubstring = text.slice(middleIndex, middleIndex + 1);
+		alert(oddSubstring);
+	} else if (text.length % 2 === 0) {
+		evenSubstring = text.slice(middleIndex - 1, middleIndex + 1);
+		alert(evenSubstring);
 	}
-	const startIndex = text.length / 2;
-	const length = Math.round(text.length / 4);
-	alert(
-		text.split(startIndex - length, startIndex + length + (text.length % 2))
-	);
 }
 
 function stringReplace() {
-	const text = parseInt(
-		prompt('Provide string containing at least 5 characters.')
-	);
-	text = text.replace(/a/gi, '@').replace(/e/gi, '3').replace(/o/gi, '0');
-	console.log(text);
+	const text = prompt('Provide string containing at least 5 characters.');
+	let newText = text
+		.replace(/a/gi, '@')
+		.replace(/e/gi, '3')
+		.replace(/o/gi, '0');
+	alert(newText);
 }
+
+// function ifExample() {
+// 	const age = parseInt(prompt('How old are you?'));
+// 	if (isNaN(age) || age > 1) {
+// 		if (confirm('Are you sure that your age is: ' + age + '?')) {
+// 		} else if (confirm('Definitely?')) {
+// 			alert('Your age is ' + age + '!');
+// 			return;
+// 		}
+// 	}
+// 	alert("I still don't know your age :(");
+// }
 
 function ifExample() {
 	const age = parseInt(prompt('How old are you?'));
-	if (isNaN(age) || age > 1) {
-		if (confirm('Are you sure that your age is: ' + age + '?')) {
-		} else if (confirm('Definitely?')) {
-			alert('Your age is ' + age + '!');
-			return;
+
+	if (isNaN(age) || age < 1) {
+		if (confirm(`Are you sure that your age is ${age}?`)) {
+			if (confirm('Definitely?')) {
+				alert('Well, it seems your age is too low or not a number.');
+			} else {
+				alert("I still don't know your age.");
+				return age;
+			}
+		} else {
+			alert("I still don't know your age.");
+			return age;
 		}
+	} else {
+		alert(`Your age is ${age}.`);
+		return age;
 	}
-	alert("I still don't know your age :(");
 }
 
 function switchExample() {

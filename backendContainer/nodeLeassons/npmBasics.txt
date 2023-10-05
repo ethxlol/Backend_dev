@@ -1,0 +1,35 @@
+to check globally anything in npm
+npm outdated -g (this will check on a global scale for outdated packages)
+
+to install stuff 
+npm install (-g if you want it globally)
+and for dev we need npm install something --save-dev at the end
+
+to make a init file package.json
+npm init
+
+to update an old dependency 
+npm update next (this will update next)
+
+the above almost never works though so we use this instead
+npm install next (this will reinstall locally, we can do -g if we want it globally)
+
+to uninstall
+npm uninstall
+
+to audit something that has vulnerabilities upon installing
+npm audit 
+
+There might be  a fix if so:
+npm audit fix
+
+if not we simply npm uninstall
+
+what we also can do if we need a package maybe only once for a project:
+npx -p @angular/cli ng new myapp 
+
+in our package.json we can add to our scripts something we would like to be able to install with a run <i class=""scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"createMoo": "npx cowsay hello!" <<<<<< This is the one that we added
+	}, fa-comment-alt-dollar    "></i>
+  So now we can do npm run createMoo, and the cowsay will run

@@ -1,0 +1,166 @@
+/* User Table */
+
+body {
+	text-align: center;
+}
+
+/* Frame */
+.frame-container {
+	border: 1px solid #212529;
+	margin: 300px;
+	margin-top: 50px;
+	border-radius: 2px;
+	padding-bottom: 30px;
+}
+
+#userTable th {
+	font-family: Consolas;
+	color: #fff;
+	border-radius: 1px;
+	background-color: #0e8ea8;
+	border: solid 1px #212529;
+}
+
+#userTable td {
+	font-family: Calibri;
+	border-radius: 1px;
+	background-color: #83d1e1;
+	border: solid 1px #212529;
+}
+.highlighted {
+	background-color: green !important;
+}
+
+/* Delivery Schedule */
+
+#scheduleFormTable th {
+	font-family: Consolas;
+	color: #fff;
+	border: solid 1px #212529;
+	border-radius: 1px;
+	background-color: #0e8ea8;
+}
+
+#scheduleFormTable td {
+	font-family: Calibri;
+	border: solid 1px #212529;
+	background-color: #83d1e1;
+}
+
+/* Delivery Board */
+#deliveryBoard th {
+	font-family: Consolas;
+	color: #fff;
+	background-color: #0e8ea8;
+	border: solid 1px black;
+	border-radius: 1px;
+}
+
+#deliveryBoardTable td {
+	font-family: Calibri;
+	border: solid 1px #212529;
+	background-color: #83d1e1;
+}
+
+/* Toast */
+.toast {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0px;
+	z-index: 9999;
+}
+
+.toast-body {
+	text-align: left;
+}
+
+/* Fixed Buttons */
+.fixed-size-btn {
+	width: 120px;
+	height: 40px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Consolas;
+	color: #fff;
+}
+
+/* Negative Buttons */
+#outButton,
+#clearButton {
+	/* i put the important on this, this is because i did not see the difference between BS danger and this color,
+	so i was not sure if it actully changed */
+	background-color: #dc3545 !important;
+}
+
+/* Positive Buttons */
+#inButton,
+#addButton {
+	border-color: #198754;
+	background-color: #198754;
+}
+
+/* Dropdown Button Car/Motorcycle */
+/* Dont know exaclty how big or small this was so i just winged it based on the video */
+#vehicleDropdown {
+	display: flex;
+	text-align: left;
+	width: 180px;
+	height: 50px;
+	background-color: #fff;
+	color: #212529;
+	align-items: flex-start;
+}
+
+/* Navbar */
+
+.navbar {
+	margin-bottom: 20px;
+}
+
+.nav-link {
+	font-family: Consolas;
+	color: #fff;
+}
+
+.dropdown-item {
+	background-color: #83d1e1;
+	color: #212529;
+	font-family: Calibri;
+}
+
+#navbarInventory {
+	background-color: #0e8ea8;
+}
+
+#navbarOrders {
+	background-color: #0e8ea8;
+	margin-left: 1px;
+}
+
+#navDashboard {
+	background-color: #0e8ea8;
+	margin-right: 1px;
+}
+
+/* Animations */
+
+tr {
+	transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+tr:hover {
+	transform: scale(1.05);
+}
+
+/* Helper to prevent abstractions or distortions of the contents of the cell */
+tr:hover > td {
+	transform: scale(1 / 1.05);
+	background-color: #0834e4 !important;
+}
+
+.fixed-size-btn:hover {
+	transform: scale(1.5);
+	transition: transform 0.8s ease;
+}

@@ -1,0 +1,35 @@
+to exit node
+process.exit();
+
+current dir
+pwd
+
+browsing dir
+ls
+
+to create a dir(folder)
+mkdir whatever
+
+to create a file
+touch D: something.txt
+
+to write something in a file
+echo "This is a text" > something.txt
+
+changing drive
+cd d: or cd c:
+
+pathing
+cd c/users/emil/appdata
+
+reverting one level up
+cd ..
+
+another way to look whats inside the current dir is 
+dir
+
+and to get the amounts of subdirs inside
+dir -s
+
+Stopping programs in terminal(node)
+ctrl + c
